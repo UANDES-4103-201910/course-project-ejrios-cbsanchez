@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @adminstrator.name %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @adminstrator.password %>
+</p>
+
+<p>
+  <strong>Nickname:</strong>
+  <%= @adminstrator.nickname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @adminstrator.email %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @adminstrator.country %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @adminstrator.city %>
+</p>
+
+<%= link_to 'Edit', edit_adminstrator_path(@adminstrator) %> |
+<%= link_to 'Back', adminstrators_path %>

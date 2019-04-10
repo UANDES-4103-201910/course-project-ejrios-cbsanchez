@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Texto:</strong>
+  <%= @commentary.texto %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @commentary.country %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @commentary.city %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @commentary.user %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @commentary.post %>
+</p>
+
+<%= link_to 'Edit', edit_commentary_path(@commentary) %> |
+<%= link_to 'Back', commentaries_path %>
