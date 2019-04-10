@@ -5,7 +5,6 @@ class User < ApplicationRecord
   validates :password, length: { in: 6..15}, presence: true
   validates :nickname, uniqueness: true, presence: true
   validates :email, uniqueness: true, presence: true
-  #validates :country, allow_nil: true
-  #validates :country, :allow_blank: true
-  #validates :biography, allow_blank: true
+  validates :email, format: {with: URI::MailTo::EMAIL_REGEXP}
+
 end
