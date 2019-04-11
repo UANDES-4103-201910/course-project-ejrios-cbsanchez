@@ -1,4 +1,4 @@
-<%= form_with(model: commentary, local: true) do |form| %>
+<%= form_with(model: commentary, local: true, html: {multipart: true}) do |form| %>
   <% if commentary.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(commentary.errors.count, "error") %> prohibited this commentary from being saved:</h2>
@@ -34,6 +34,21 @@
   <div class="field">
     <%= form.label :post_id %>
     <%= form.text_field :post_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :photo %>
+    <%= form.file_field :photo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :file %>
+    <%= form.text_field :file %>
   </div>
 
   <div class="actions">

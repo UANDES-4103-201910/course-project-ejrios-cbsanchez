@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 2019_04_10_001756) do
     t.string "city"
     t.integer "user_id"
     t.integer "post_id"
+    t.string "photo"
+    t.string "file"
+    t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_commentaries_on_post_id"
@@ -56,6 +59,9 @@ ActiveRecord::Schema.define(version: 2019_04_10_001756) do
     t.string "type"
     t.string "country"
     t.string "city"
+    t.string "photo"
+    t.string "file"
+    t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
@@ -88,6 +94,8 @@ ActiveRecord::Schema.define(version: 2019_04_10_001756) do
     t.string "city"
     t.text "biography"
     t.string "password"
+    t.string "photo"
+    t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

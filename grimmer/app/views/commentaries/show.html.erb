@@ -25,5 +25,20 @@
   <%= @commentary.post %>
 </p>
 
+<p>
+  <strong>Photo:</strong>
+  <%= @commentary.photo %>
+</p>
+
+<p>
+  <strong>File:</strong>
+  <%= @commentary.file %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @commentary.location %>
+</p>
+
 <%= link_to 'Edit', edit_commentary_path(@commentary) %> |
 <%= link_to 'Back', commentaries_path %>
