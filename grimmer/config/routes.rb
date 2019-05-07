@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :adminstrators
   resources :super_admins
   get '/users/intro', to: 'users#intro'
+  get 'new', to: 'new', controller: 'users'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'users#prueba'
+  root 'users#inicio'
 end

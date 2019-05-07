@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="application.scss">
+</head>
+<body>
+
+<div class="container text-center">
+  <br>
+  <header class="GRIMMER">
+    <h1>GRIMMER</h1>
+  </header>
+  <br>
+  <p>Log in</p>
+  <form>
+    <div class="form-group row">
+      <div class="col-md-2"></div>
+      <div class="col-md-1">
+        <label for="usr">Email:</label>
+      </div>
+      <div class="col-md-6">
+        <input type="text" class="form-control" id="usr" name="username">
+      </div>
+    </div>
+    <br>
+    <div class="form-group row">
+      <div class="col-md-2"></div>
+      <div class="col-md-1">
+        <label for="pwd">  Password:</label>
+      </div>
+      <div class="col-md-6">
+        <input type="password" class="form-control" id="pwd" name="password">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+
+      <div class="col-md-2">
+        <a href="new" class="text-primary bg-white" data-toggle="tooltip" title="Click here!">Are you new?</a>
+      </div>
+
+      <script>
+          $(document).ready(function(){
+              $('[data-toggle="tooltip"]').tooltip();
+          });
+      </script>
+    </div>
+
+
+  </form>
+
+</div>
+
+</body>
+</html>
+
+
+
