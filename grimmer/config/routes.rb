@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'show', to: 'show', controller: 'users'
   get 'new', to: 'new', controller: 'users'
   get 'LogIn', to: 'LogIn',  controller: 'logins'
-  get 'profile', to: 'profile', controller: 'user_profiles'
+  get 'Profile', to: 'Profile', controller: 'user_profiles'
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'users#LogIn'
 end
