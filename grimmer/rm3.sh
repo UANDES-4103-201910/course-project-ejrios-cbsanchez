@@ -1,0 +1,22 @@
+#!/bin/bash
+rm  /usr/local/lib/libGLEW.1.5.4.dylib
+rm  /usr/local/lib/libSDL-1.2.0.dylib
+rm  /usr/local/lib/libatk-1.0.0.2209.1.dylib
+rm  /usr/local/lib/libgdk-x11-2.0.0.1200.0.dylib
+rm  /usr/local/lib/libgdk_pixbuf-2.0.0.1200.0.dylib
+rm  /usr/local/lib/libgdk_pixbuf_xlib-2.0.0.1200.0.dylib
+rm  /usr/local/lib/libgio-2.0.0.0.0.dylib
+rm  /usr/local/lib/libglib-2.0.0.1600.0.dylib
+rm  /usr/local/lib/libgmodule-2.0.0.1600.0.dylib
+rm  /usr/local/lib/libgobject-2.0.0.1600.0.dylib
+rm  /usr/local/lib/libgthread-2.0.0.1600.0.dylib
+rm  /usr/local/lib/libgtk-x11-2.0.0.1200.0.dylib
+rm  /usr/local/lib/libintl.8.0.2.dylib
+rm  /usr/local/lib/libjpeg.62.dylib
+rm  /usr/local/lib/libpango-1.0.0.2100.0.dylib
+rm  /usr/local/lib/libpangocairo-1.0.0.2100.0.dylib
+rm  /usr/local/lib/libpangoft2-1.0.0.2100.0.dylib
+rm  /usr/local/lib/libpangox-1.0.0.2100.0.dylib
+rm  /usr/local/lib/libpangoxft-1.0.0.2100.0.dylib
+rm  /usr/local/lib/libportaudio.2.0.0.dylib
+rm  /usr/local/lib/libz.1.2.5.dylib
