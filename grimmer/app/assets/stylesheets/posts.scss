@@ -2,5 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #Style1 {padding-top:50px;height:500px;color: black; background-color: lightgrey; border-radius: 15px; flex-direction: row; overflow: scroll;}
-#StylePost {background-color:gray;  }
+#StylePost {background-color:gray;  border-radius: 15px}
+.Stylefullpost {padding-top:50px;height:300px;color: black; background-color: lightgrey; border-radius: 15px; flex-direction: row; overflow: scroll;}
+.photo {width:30px;}
 .GRIMMER{color: #cc0000}
