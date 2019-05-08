@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'Profile', to: 'Profile', controller: 'user_profiles'
   get 'search_user', to: 'search_user', controller: 'users'
   get 'full_post', to: 'full_post', controller: 'posts'
+  get ''
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'users#LogIn'
+  root 'users#view_users'
 end
