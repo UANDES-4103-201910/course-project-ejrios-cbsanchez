@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   get 'new', to: 'new', controller: 'users'
   get 'LogIn', to: 'LogIn',  controller: 'logins'
   get 'Profile', to: 'Profile', controller: 'user_profiles'
-<<<<<<< HEAD
   get 'publish', to: 'publish', controller: 'posts'
   get 'deletePost', to: 'deletePost', controller: 'posts'
   get 'search_user', to: 'search_user',controller: 'users'
@@ -22,12 +21,7 @@ Rails.application.routes.draw do
   get 'full_post', to: 'full_post', controller: 'posts'
   get 'view_user', to: 'view_user', controller: 'users'
   get 'blacklist', to: 'blacklist', controller: 'black_lists'
-=======
-  get 'search_user', to: 'search_user', controller: 'users'
-  get 'full_post', to: 'full_post', controller: 'posts'
-  get 'blacklist', to: 'blacklist', controller: 'black_lists'
 
->>>>>>> 35f0c19c48353547e7db54c13a20e569d242b812
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'black_lists#blacklist'
 end
