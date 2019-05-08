@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   get 'Profile', to: 'Profile', controller: 'user_profiles'
   get 'search_user', to: 'search_user', controller: 'users'
   get 'full_post', to: 'full_post', controller: 'posts'
-  get ''
+  get 'blacklist', to: 'blacklist', controller: 'black_lists'
+
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'users#view_users'
+  root 'black_lists#blacklist'
 end
