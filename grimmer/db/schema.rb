@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_10_001756) do
+ActiveRecord::Schema.define(version: 2019_05_08_190049) do
 
   create_table "adminstrators", force: :cascade do |t|
     t.string "name"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2019_04_10_001756) do
     t.string "title"
     t.text "description"
     t.integer "user_id"
-    t.string "type"
+    t.string "type_of_post"
     t.string "country"
     t.string "city"
     t.string "photo"

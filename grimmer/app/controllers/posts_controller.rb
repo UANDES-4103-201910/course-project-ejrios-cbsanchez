@@ -21,6 +21,11 @@ class PostsController < ApplicationController
   def edit
   end
 
+  def home
+    @post_recent = Post.all.order(:created_at).limit(20)
+    @post_all = Post.all
+  end
+
   # POST /posts
   # POST /posts.json
   def create
@@ -69,6 +74,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :description, :user_id, :type, :country, :city, :photo, :file, :location)
+      params.require(:post).permit(:title, :description, :user_id, :type_of_post, :country, :city, :photo, :file, :location)
     end
 end

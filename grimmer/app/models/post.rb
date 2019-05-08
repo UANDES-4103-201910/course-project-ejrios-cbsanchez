@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   has_many :commentaries
   validates :title, presence: true
   validates :description, presence: true
-  validates :type, presence: true
+  validates :type_of_post, presence: true
 
   before_validation :ensure_post_have_description
 

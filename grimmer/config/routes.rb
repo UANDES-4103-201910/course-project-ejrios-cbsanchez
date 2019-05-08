@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   resources :commentaries
   resources :adminstrators
   resources :super_admins
+  resources :posts
   get '/users/intro', to: 'users#intro'
+  get 'index', to: 'index',controller:'users'
+  get 'index', to: 'index',controller:'posts'
+  get 'new', to: 'new',controller:'posts'
 
   get 'home', to: 'home' ,controller: 'posts'
   get 'show', to: 'show', controller: 'users'
@@ -21,7 +25,8 @@ Rails.application.routes.draw do
   get 'full_post', to: 'full_post', controller: 'posts'
   get 'view_user', to: 'view_user', controller: 'users'
   get 'blacklist', to: 'blacklist', controller: 'black_lists'
+  get 'home_admin' , to: 'home_admin', controller: 'adminstrators'
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'black_lists#blacklist'
+  root 'posts#home'
 end

@@ -55,60 +55,67 @@
 <br>
 
 <div class="container ">
-  <div class = "col-xl-11">
-    <h1>Most Recent Post</h1>
-    <div  class="container-fluid Style2 end">
-    <div class="d-flex flex-column mb-3" id ="StylePost" >
-      <div class="d-flex mb-3 ">
-        <div class="p-2  ">
-          <a href="full_post" class="text-primary description" data-toggle="tooltip"  >title</a>
-        </div>
-        <div class="p-2 ml-auto ">fecha de creacion</div>
+  <div class="container">
+    <div class = "col-xl-11">
+      <h1>Most Comment Post</h1>
+      <div  class="container Style2 end">
+        <p id="notice"><%= notice %></p>
+        <div  class="container Style2 end">
+          <% @post_recent.each do |post| %>
+            <div class="container-fluid row " id="StylePost">
+              <div class="col">
+                <a href="#" class="text-primary description "   ><%= post.title %></a>
+              </div>
 
-      </div>
-      <div class="p-2" >Post text</div>
-    </div>
-    <br>
-    <div class="d-flex flex-column mb-3" id ="StylePost" >
-      <div class="d-flex mb-3 ">
-        <div class="p-2  ">
-          <a href="#" class="text-primary description" data-toggle="tooltip"  >title</a>
+              <div class="col text-right">
+                <%= post.created_at %>
+              </div>
+            </div>
+            <div class="container row" id="StylePost">
+              <%= post.description %>
+            </div>
+            <div class="container row " id="StylePost">
+              <div class="col text-right">
+                <%= post.user.nickname%>
+              </div>
+            </div>
+            <br>
+          <% end %>
         </div>
-        <div class="p-2 ml-auto ">fecha de creacion</div>
       </div>
-      <div class="p-2" >Post text</div>
-    </div>
-  </div>
     </div>
   </div>
   <br>
   <div class="container">
-  <div class = "col-xl-11">
-    <h1>Most Comment Post</h1>
-    <div  class="container-fluid Style2 end">
-      <div class="d-flex flex-column mb-3" id ="StylePost" >
-        <div class="d-flex mb-3 ">
-          <div class="p-2  ">
-            <a href="#" class="text-primary description" data-toggle="tooltip"  >title</a>
-          </div>
-          <div class="p-2 ml-auto ">fecha de creacion</div>
+    <div class = "col-xl-11">
+      <h1>Most Comment Post</h1>
+      <div  class="container Style2 end">
+        <p id="notice"><%= notice %></p>
+        <div  class="container Style2 end">
+          <% @post_all.each do |post| %>
+            <div class="container-fluid row " id="StylePost">
+              <div class="col">
+                <a href="#" class="text-primary description "   ><%= post.title %></a>
+              </div>
+
+              <div class="col text-right">
+                <%= post.created_at %>
+              </div>
+            </div>
+            <div class="container row" id="StylePost">
+              <%= post.description %>
+            </div>
+            <div class="container row " id="StylePost">
+              <div class="col text-right">
+                <%= post.user.nickname%>
+              </div>
+            </div>
+            <br>
+          <% end %>
         </div>
-        <div class="p-2" >Post text</div>
-      </div>
-      <br>
-      <div class="d-flex flex-column mb-3" id ="StylePost" >
-        <div class="d-flex mb-3 ">
-          <div class="p-2  ">
-            <a href="#" class="text-primary description" data-toggle="tooltip"  >title</a>
-          </div>
-          <div class="p-2 ml-auto ">fecha de creacion</div>
-        </div>
-        <div class="p-2" >Post text</div>
       </div>
     </div>
   </div>
-  </div>
 </div>
-
 </body>
 </html>
