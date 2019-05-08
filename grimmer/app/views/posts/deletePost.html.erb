@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Profile</title>
+  <title>home</title>
   <link rel="stylesheet" href="application.scss">
 </head>
 <body>
+
 <nav class="navbar navbar-expand-sm bg-info navbar-dark">
   <img src="angry-monkey.jpg" style="width: 40px;" alt="angry-monkey">
 </nav>
@@ -12,7 +13,7 @@
 <nav class="navbar navbar-expand-sm bg-info navbar-dark">
   <!-- Brand -->
   <div class="GRIMMER">
-    <h4> GRIMMER </h4>
+   <h4> GRIMMER </h4>
   </div>
 
 
@@ -41,11 +42,11 @@
       </a>
       <div class="dropdown-menu">
         <a class="dropdown-item" href="search_user">User</a>
-        <a class="dropdown-item" href="uConfig">Post</a>
+        <a class="dropdown-item" href="#">Post</a>
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Configuration</a>
+      <a class="nav-link" href="uConfig">Configuration</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="LogIn">Log Out</a>
@@ -53,70 +54,48 @@
   </ul>
 </nav>
 <br>
-<br>
-<br>
-<br>
-<div class="container">
-  <div class="container-fluid row">
-    <div class="col-sm-3 "> fotousuario
-    </div>
-    <div class="col-sm-3 ">
-      <div class="row h3">nombre usuario</div>
-      <div class="row">contry, city</div>
-    </div>
-    <div class="col-sm-6">
-      <div class="container-fluid Style2">description</div>
-    </div>
-  </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
 
+<div class="container">
+  <h2>Delete Post</h2>
+  <br>
   <div class="container-fluid row">
-    <div class="col-sm-6 ">
-      <h5>User Posts</h5>
+
+    <div class="col-sm-8 ">
       <div  class="container-fluid Style2 end">
-        <div class="d-flex flex-column mb-3" id ="StylePost" >
-          <div class="d-flex mb-3 ">
-            <div class="p-2  ">
-              <a href="#" class="text-primary description" data-toggle="tooltip"  >title</a>
-            </div>
-            <div class="p-2 ml-auto ">fecha de creacion</div>
-          </div>
-          <div class="p-2" >Post text</div>
-        </div>
+        <h6>My Posts</h6>
         <br>
         <div class="d-flex flex-column mb-3" id ="StylePost" >
           <div class="d-flex mb-3 ">
             <div class="p-2  ">
-              <a href="#" class="text-primary description" data-toggle="tooltip"  >title</a>
+              <a href="#" class="text-body description" data-toggle="tooltip" title="Click here to see full post" >Title</a>
             </div>
             <div class="p-2 ml-auto ">fecha de creacion</div>
           </div>
           <div class="p-2" >Post text</div>
+          <a href="#" rol="button" class="p-2 ml-auto btn btn-primary text-white" >Delete</a>
         </div>
-      </div>
-    </div>
-    <div class="col-sm-6 ">
-      <h5>User Shared</h5>
-      <div  class="container-fluid Style2 end">
+
+        <br>
         <div class="d-flex flex-column mb-3" id ="StylePost" >
           <div class="d-flex mb-3 ">
             <div class="p-2  ">
-              <a href="#" class="text-primary description" data-toggle="tooltip"  >title</a>
+              <a href="#" class="text-body description" data-toggle="tooltip" title="Click here to see full post" >Title</a>
             </div>
             <div class="p-2 ml-auto ">fecha de creacion</div>
           </div>
           <div class="p-2" >Post text</div>
+          <a href="#" rol="button" class="p-2 ml-auto btn btn-primary text-white" >Delete</a>
         </div>
       </div>
-
     </div>
   </div>
 </div>
+<br>
+<br>
 </body>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 </html>
