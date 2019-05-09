@@ -20,6 +20,10 @@ class AdminstratorsController < ApplicationController
   # GET /adminstrators/1/edit
   def edit
   end
+  
+  def modifyAdmin
+    @admin_all = Adminstrator.all
+  end
 
   # POST /adminstrators
   # POST /adminstrators.json

@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   get 'dumplist', to: 'dumplist', controller: 'dump_lists'
   get 'signIn', to: 'signIn',  controller: 'users'
   get 'usePolicy', to: 'usePolicy',  controller: 'users'
+  get 'superAdminNew', to: 'superAdminNew', controller: 'super_admins'
+  get 'view_post', to: 'view_post', controller: 'posts'
+  get 'modify_admin' , to: 'modify_admin', controller: 'adminstrators'
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'users#LogIn'
 end

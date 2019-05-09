@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>home</title>
+  <link rel="stylesheet" href="application.scss">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+  <img src="angry-monkey.jpg" style="width:40px;" alt="angry-monkey">
+</nav>
+<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+  <!-- Brand -->
+  <div class="GRIMMER">
+    <h4>GRIMMER</h4>
+  </div>
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="home_admin">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="blacklist">Blacklist</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="dumplist">Dumplist</a>
+    </li>
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        View
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="view_post">Posts</a>
+        <a class="dropdown-item" href="view_user">Users</a>
+      </div>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        SuperAdmin
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="superAdminNew">New Admin</a>
+        <a class="dropdown-item" href="modify_admin">Modify Admin</a>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="LogIn">Log Out</a>
+    </li>
+  </ul>
+</nav>
+<br>
+<div class="container">
+  <div class=" row">
+    <h2>SuperAdmin Configurations</h2>
+  </div>
+  <div class=" row">
+    <h7>Modify Administrators</h7>
+  </div>
+
+
+  <br>
+  <div class="container row">
+    <div class="jumbotron col-md-6">
+
+      <p>List Of Administrators</p>
+      <input class="form-control" id="myInput" type="text" placeholder="Search..">
+      <br>
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>Results</th>
+        </tr>
+        </thead>
+        <tbody id="myTable">
+        <!-- all the users and when the people search they apear all-->
+        <tr>
+          <td>
+            <% @admin_all.each do |admin| %>
+              <div class="col searchable">
+                <div class="container-fluid row ">
+                  <div class="col">
+                    <a href="#" class="text-primary "   ><%= admin.name %></a>
+                  </div>
+
+                  <div class="col text-right">
+                    <%= admin.country %>
+                    <%= admin.city %>
+                  </div>
+                </div>
+                <div class="container row" >
+                  <%= admin.nichname %>
+                </div>
+              </div>
+              <br>
+            <% end %>
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+    <div class="col-md-1"></div>
+
+    <div class="jumbotron col-md-5">
+      <label>AdminName</label>
+      <br>
+      <div class="col">
+        <label for="pwd">New Password:</label>
+      </div>
+      <div class="col">
+        <input type="password" class="form-control" id="pwd" name="password">
+      </div>
+      <div class="col">
+        <label for="ctry">Country:</label>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" id="ctry" name="country">
+      </div>
+      <div class="col">
+        <label for="cty">City:</label>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" id="cty" name="city">
+      </div>
+      <div class="col">
+        <label>Last Access:</label>
+      </div>
+      <br>
+      <label>Authorisation</label>
+      <div class="col">
+        <label for="pwda">SuperAdmin Password:</label>
+      </div>
+      <div class="col">
+        <input type="password" class="form-control" id="pwa" name="passwordAdmin">
+      </div>
+      <br>
+      <div row>
+        <button type="submit" rol="button" class="btn btn-primary text-white">Delete</button>
+        <button type="submit" rol="button" class="btn btn-primary text-white">Modify</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<script>
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("div.searchable").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+</body>
+</html>

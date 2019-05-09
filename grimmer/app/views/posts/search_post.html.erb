@@ -6,11 +6,15 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-sm bg-info navbar-dark">
-  <img src="angry-monkey-man-260nw-125195882.jpg" style="width:40px;">
+  <img src="angry-monkey.jpg" style="width: 40px;" alt="angry-monkey">
 </nav>
+
 <nav class="navbar navbar-expand-sm bg-info navbar-dark">
   <!-- Brand -->
-  <a class="navbar-brand "  href="">GRIMMER</a>
+  <div class="GRIMMER">
+    <h4> GRIMMER </h4>
+  </div>
+
 
   <!-- Links -->
   <ul class="navbar-nav">
@@ -27,8 +31,8 @@
         Posts
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">New Post</a>
-        <a class="dropdown-item" href="#">Delete Post</a>
+        <a class="dropdown-item" href="publish">New Post</a>
+        <a class="dropdown-item" href="deletePost">Delete Post</a>
       </div>
     </li>
     <li class="nav-item dropdown">
@@ -36,19 +40,19 @@
         Search
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">User</a>
-        <a class="dropdown-item" href="#">Post</a>
+        <a class="dropdown-item" href="search_user">User</a>
+        <a class="dropdown-item" href="search_post">Post</a>
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Configuration</a>
+      <a class="nav-link" href="uConfig">Configuration</a>
     </li>
-    <li class="nav-item ">
-      <a class="nav-link " href="#">Log Out</a>
+    <li class="nav-item">
+      <a class="nav-link" href="LogIn">Log Out</a>
     </li>
   </ul>
 </nav>
-
+<br>
 <div class="container mt-3">
   <h2>Search Posts</h2>
   <p>You can search by nickname, location or email</p>

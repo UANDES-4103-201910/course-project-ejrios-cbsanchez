@@ -41,11 +41,11 @@
       </a>
       <div class="dropdown-menu">
         <a class="dropdown-item" href="search_user">User</a>
-        <a class="dropdown-item" href="uConfig">Post</a>
+        <a class="dropdown-item" href="search_post">Post</a>
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Configuration</a>
+      <a class="nav-link" href="uConfig">Configuration</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="LogIn">Log Out</a>
@@ -95,11 +95,6 @@
             </div>
             <div class="container row" id="StylePost">
               <%= post.description %>
-            </div>
-            <div class="container row " id="StylePost">
-              <div class="col text-right">
-                <%= post.user.nickname%>
-              </div>
             </div>
             <br>
           <% end %>

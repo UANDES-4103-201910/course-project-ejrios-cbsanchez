@@ -29,9 +29,15 @@ class PostsController < ApplicationController
   def search_post
     @post_all_search = Post.all
   end
-   def profile
-     @post_user= Post.find(:user.nickname)
-   end
+
+  def view_post
+    @post_all = Post.all
+  end
+
+  def Profile
+   @post_user = Post.all.where(user_id: 1).take(all)
+  end
+
   def full_post
     @post = Post.find(post_params)
   end
