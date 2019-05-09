@@ -1,6 +1,9 @@
 class DumpListsController < ApplicationController
   before_action :set_dump_list, only: [:show, :edit, :update, :destroy]
 
+  def dumplist
+    @dump_list_all = DumpList.all
+  end
   # GET /dump_lists
   # GET /dump_lists.json
   def index

@@ -64,32 +64,34 @@
   <table class="table table-bordered">
     <thead>
     <tr>
-      <th>Nickname</th>
-      <th>Location</th>
-      <th>Email</th>
+      <th>Results</th>
     </tr>
     </thead>
     <tbody id="myTable">
     <!-- all the users and when the people search they apear all-->
     <tr>
-      <td><a href="#" class="text-black bg-white"  >john</a></td>
-      <td>Doe</td>
-      <td>pppp@example.com</td>
-    </tr>
-    <tr>
-      <td><a href="#" class="text-black bg-white"  >Mary</a></td>
-      <td>Moe</td>
-      <td>mary@mail.com</td>
-    </tr>
-    <tr>
-      <td><a href="#" class="text-black bg-white"  >July</a></td>
-      <td>Dooley</td>
-      <td>july@greatstuff.com</td>
-    </tr>
-    <tr>
-      <td><a href="#" class="text-black bg-white"  >Anja</a></td>
-      <td>Ravendale</td>
-      <td>a_r@test.com</td>
+      <td>
+        <% @user_all.each do |user| %>
+          <div class="col searchable">
+            <div class="container-fluid row ">
+              <div class="col">
+                <a href="#" class="text-primary "   ><%= user.nickname %></a>
+              </div>
+
+              <div class="col text-right">
+                <%= user.photo %>
+              </div>
+            </div>
+            <div class="container row" >
+              <%= user.email %>
+            </div>
+            <div class="container row" >
+              <%= user.location %>
+            </div>
+          </div>
+          <br>
+        <% end %>
+      </td>
     </tr>
 
     </tbody>
@@ -101,7 +103,7 @@
     $(document).ready(function(){
         $("#myInput").on("keyup", function() {
             var value = $(this).val().toLowerCase();
-            $("#myTable tr").filter(function() {
+            $("div.searchable").filter(function() {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });

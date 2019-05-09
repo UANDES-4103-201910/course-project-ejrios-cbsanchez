@@ -26,6 +26,16 @@ class PostsController < ApplicationController
     @post_all = Post.all
   end
 
+  def search_post
+    @post_all_search = Post.all
+  end
+   def profile
+     @post_user= Post.find(:user.nickname)
+   end
+  def full_post
+    @post = Post.find(post_params)
+  end
+
   # POST /posts
   # POST /posts.json
   def create
