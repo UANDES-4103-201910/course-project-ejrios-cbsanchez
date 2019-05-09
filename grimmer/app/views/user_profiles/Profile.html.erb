@@ -6,7 +6,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-sm bg-info navbar-dark">
-  <img src="angry-monkey.jpg" style="width: 40px;" alt="angry-monkey">
+  <img src="angry-monkey.jng" style="width: 40px;" alt="angry-monkey">
 </nav>
 
 <nav class="navbar navbar-expand-sm bg-info navbar-dark">
@@ -58,14 +58,14 @@
 <br>
 <div class="container">
   <div class="container-fluid row">
-    <div class="col-sm-3 "> fotousuario
+    <div class="col-sm-3 "> <%= @user_profile1.photo %>
     </div>
     <div class="col-sm-3 ">
-      <div class="row h3">nombre usuario</div>
-      <div class="row">contry, city</div>
+      <div class="row h3"><%= @user_profile1.name %></div>
+      <div class="row"><%= @user_profile1.country %> , <%= @user_profile1.city %></div>
     </div>
     <div class="col-sm-6">
-      <div class="container-fluid Style2">description</div>
+      <div class="container-fluid Style2"><%= @user_profile1.biography %></div>
     </div>
 
   </div>
@@ -118,11 +118,6 @@
             </div>
             <div class="container row" id="StylePost">
               <%= post.description %>
-            </div>
-            <div class="container row " id="StylePost">
-              <div class="col text-right">
-                <%= post.user.nickname%>
-              </div>
             </div>
             <br>
           <% end %>

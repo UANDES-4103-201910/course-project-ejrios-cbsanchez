@@ -34,12 +34,13 @@ class PostsController < ApplicationController
     @post_all = Post.all
   end
 
-  def Profile
-   @post_user = Post.all.where(user_id: 1).take(all)
-  end
 
   def full_post
     @post = Post.find(post_params)
+  end
+
+  def deletePost
+    @post_user = Post.where(user_id: 1)
   end
 
   # POST /posts

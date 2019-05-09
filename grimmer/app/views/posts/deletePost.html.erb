@@ -64,28 +64,19 @@
       <div  class="container-fluid Style2 end">
         <h6>My Posts</h6>
         <br>
-        <div class="d-flex flex-column mb-3" id ="StylePost" >
-          <div class="d-flex mb-3 ">
-            <div class="p-2  ">
-              <a href="#" class="text-body description" data-toggle="tooltip" title="Click here to see full post" >Title</a>
+        <% @post_user.each do |post| %>
+          <div class="d-flex flex-column mb-3" id ="StylePost" >
+            <div class="d-flex mb-3 ">
+              <div class="p-2  ">
+                <a href="#" class="text-body description" data-toggle="tooltip" title="Click here to see full post" ><%= post.title %></a>
+              </div>
+              <div class="p-2 ml-auto "><%= post.created_at %></div>
             </div>
-            <div class="p-2 ml-auto ">fecha de creacion</div>
+            <div class="p-2" ><%= post.description %></div>
+            <a href="#" rol="button" class="p-2 ml-auto btn btn-primary text-white" >Delete</a>
           </div>
-          <div class="p-2" >Post text</div>
-          <a href="#" rol="button" class="p-2 ml-auto btn btn-primary text-white" >Delete</a>
-        </div>
-
-        <br>
-        <div class="d-flex flex-column mb-3" id ="StylePost" >
-          <div class="d-flex mb-3 ">
-            <div class="p-2  ">
-              <a href="#" class="text-body description" data-toggle="tooltip" title="Click here to see full post" >Title</a>
-            </div>
-            <div class="p-2 ml-auto ">fecha de creacion</div>
-          </div>
-          <div class="p-2" >Post text</div>
-          <a href="#" rol="button" class="p-2 ml-auto btn btn-primary text-white" >Delete</a>
-        </div>
+          <br>
+        <%end %>
       </div>
     </div>
   </div>

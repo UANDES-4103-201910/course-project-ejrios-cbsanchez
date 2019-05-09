@@ -21,6 +21,12 @@ class UserProfilesController < ApplicationController
   def edit
   end
 
+  def Profile
+    @post_user = Post.where(user_id: 1)
+    @user_profile1 = User.find( 1)
+
+  end
+
   # POST /user_profiles
   # POST /user_profiles.json
   def create
