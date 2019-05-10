@@ -95,7 +95,7 @@
           <% @post_all.each do |post| %>
             <div class="container-fluid row " id="StylePost">
               <div class="col">
-                <%= link_to post.title , href= full_post_path(post) %>
+                <%= link_to post.title , href= full_post_path(post.id) %>
               </div>
 
               <div class="col text-right">

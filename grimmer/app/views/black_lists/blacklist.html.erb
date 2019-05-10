@@ -64,81 +64,27 @@
     <tbody id="myTable">
     <tr>
       <td>
-        <div class="row">
-          <div class="col-md-4">
-            <a href="#" class="text-dark " data-toggle="tooltip"  >john</a><br>
-            <h10> email </h10>
-          </div>
-          <div class="col-md-3">
-          </div>
-          <div class="col-md-1">
-            <img src="hola.jpg">
-          </div>
-          <div class="col-md-4">
-            <button type="submit" class="btn btn-primary">Restore</button>
-          </div>
-        </div>
+        <% @black_list1.each do |user| %>
+         <div class="row">
+            <div class="col-md-4">
+              <%= link_to user.user.nickname , Admin_user_profile_path(user.user.id) %>
+              <br>
+              <h10> <%= user.user.email %> </h10>
+            </div>
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-1">
+              <%= user.user.photo %>
+            </div>
+            <div class="col-md-4">
+              <button type="submit" class="btn btn-primary">Restore</button>
+            </div>
+         </div>
+        <%end %>
         <div class="row">
 
         </div>
       </td>
-    </tr>
-    <tr>
-      <td><div class="row">
-        <div class="col-md-4">
-          <a href="#" class="text-dark " data-toggle="tooltip"  >cata</a><br>
-          <h10> email </h10>
-        </div>
-        <div class="col-md-3">
-        </div>
-        <div class="col-md-1">
-          <img src="hola.jpg">
-        </div>
-        <div class="col-md-4">
-          <button type="submit" class="btn btn-primary">Restore</button>
-        </div>
-      </div>
-        <div class="row">
-
-        </div></td>
-    </tr>
-    <tr>
-      <td><div class="row">
-        <div class="col-md-4">
-          <a href="#" class="text-dark " data-toggle="tooltip"  >july</a><br>
-          <h10> email </h10>
-        </div>
-        <div class="col-md-3">
-        </div>
-        <div class="col-md-1">
-          <img src="hola.jpg">
-        </div>
-        <div class="col-md-4">
-          <button type="submit" class="btn btn-primary">Restore</button>
-        </div>
-      </div>
-        <div class="row">
-
-        </div></td>
-    </tr>
-    <tr>
-      <td><div class="row">
-        <div class="col-md-4">
-          <a href="#" class="text-dark " data-toggle="tooltip"  >ana</a><br>
-          <h10> email </h10>
-        </div>
-        <div class="col-md-3">
-        </div>
-        <div class="col-md-1">
-          <img src="hola.jpg">
-        </div>
-        <div class="col-md-4">
-          <button type="submit" class="btn btn-primary">Restore</button>
-        </div>
-      </div>
-        <div class="row">
-
-        </div></td>
     </tr>
     </tbody>
   </table>

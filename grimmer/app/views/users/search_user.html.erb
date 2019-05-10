@@ -75,7 +75,7 @@
           <div class="col searchable">
             <div class="container-fluid row ">
               <div class="col">
-                <a href="#" class="text-primary "   ><%= user.nickname %></a>
+                <%= link_to user.nickname , Profile_path(user.id) %>
               </div>
 
               <div class="col text-right">

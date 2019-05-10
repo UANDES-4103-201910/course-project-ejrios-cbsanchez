@@ -26,6 +26,12 @@ class UserProfilesController < ApplicationController
     @user_profile1 = User.find( 1)
 
   end
+  def Admin_user_profile
+
+    @post_user = Post.where(user_id: 3)
+    @user_profile1 = User.find( 3)
+
+  end
 
   # POST /user_profiles
   # POST /user_profiles.json

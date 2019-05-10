@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   get 'superAdminNew', to: 'superAdminNew', controller: 'super_admins'
   get 'view_post', to: 'view_post', controller: 'posts'
   get 'modify_admin' , to: 'modify_admin', controller: 'adminstrators'
+  get 'Admin_user_profile', to: 'Admin_user_profile', controller: 'user_profiles'
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'users#LogIn'
 end
