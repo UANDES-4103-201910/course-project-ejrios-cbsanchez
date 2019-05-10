@@ -21,7 +21,7 @@ class AdminstratorsController < ApplicationController
   def edit
   end
   
-  def modifyAdmin
+  def modify_admin
     @admin_all = Adminstrator.all
   end
 

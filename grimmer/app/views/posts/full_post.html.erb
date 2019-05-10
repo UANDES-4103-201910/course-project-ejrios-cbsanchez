@@ -62,17 +62,17 @@
   <div class="col-xl-12 Stylefullpost">
     <div class="row">
       <div class="col-sm-2 "><h3><%= @post.title%></h3></div>
-      <div class="col-sm-2">Author</div>
+      <div class="col-sm-2"><%= @post.user.nickname %></div>
       <div class="col-sm-6"></div>
-      <div class="col-sm-2">Creation date</div>
+      <div class="col-sm-2"><%= @post.created_at%></div>
     </div>
     <div class="row ">
-      <div class="col-sm-8 Style2">description: Implement APIs to perform CRUD operations on User and Post resources. APIs must be strictly RESTful, thus utilizing routes automatically defined by Rails after User and Post resources have been properly defined in the routes.rb file. Create a collection of requests in Postman with tests for your API operations, and include in the assignment report the URL of the collection. Use the “Share Collection” feature in Postman to get the URL to your collection of test cases.Implement APIs to perform CRUD operations on User and Post resources. APIs must be strictly RESTful, thus utilizing routes automatically defined by Rails after User and Post resources have been properly defined in the routes.rb file. Create a collection of requests in Postman with tests for your API operations, and include in the assignment report the URL of the collection. Use the “Share Collection” feature in Postman to get the URL to your collection of test cases.</div>
+      <div class="col-sm-8 Style2"><%= @post.description %></div>
       <div class="col-sm-2"></div>
-      <div class="col-sm-2">foto</div>
+      <div class="col-sm-2"><%= @post.photo %></div>
     </div>
     <div class="row">
-      <div class="col-sm-2">Country, city</div>
+      <div class="col-sm-2"><%= @post.country %>, <%= @post.city %></div>
       <div class="col-sm-4"></div>
       <div class="col-sm-1">number</div>
       <div class="col-sm-1 photo"><a href="#" rol="button" class="btn btn-dark" ><img src="Emoji_u1f44e.svg.png"></a></div>

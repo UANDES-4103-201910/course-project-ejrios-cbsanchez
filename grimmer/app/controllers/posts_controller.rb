@@ -36,7 +36,7 @@ class PostsController < ApplicationController
 
 
   def full_post
-    @post = Post.find(post_params)
+    @post = Post.where(params[:id]).take!
   end
 
   def deletePost
