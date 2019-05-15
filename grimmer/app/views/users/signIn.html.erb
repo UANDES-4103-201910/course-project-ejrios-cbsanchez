@@ -16,6 +16,7 @@
   <br>
   <h4>New User</h4>
   <br>
+  <%= form_with(model: @user, local: true , html: {multipart: true}) do |form| %>
   <form>
     <div class="jumbotron container">
       <div class="form-group row">
@@ -23,7 +24,9 @@
           <label for="email">Email:</label>
         </div>
         <div class="col-md-6">
-          <input type="text" class="form-control" id="email" name="useremail">
+          <div class="field ">
+            <%= form.text_field :email %>
+          </div>
         </div>
       </div>
       <br>
@@ -31,8 +34,10 @@
         <div class="col-md-3">
           <label for="user">Name:</label>
         </div>
-        <div class="col-md-6">
-          <input type="text" class="form-control" id="user" name="username">
+        <div class="col-md-6 "  >
+          <div class="field ">
+            <%= form.text_field :name %>
+          </div>
         </div>
       </div>
       <br>
@@ -41,7 +46,9 @@
           <label for="user">Nickname:</label>
         </div>
         <div class="col-md-6">
-          <input type="text" class="form-control" id="user" name="nickname">
+          <div class="field ">
+            <%= form.text_field :nickname %>
+          </div>
         </div>
       </div>
       <br>
@@ -50,7 +57,9 @@
           <label for="pwd">  Password:</label>
         </div>
         <div class="col-md-6">
-          <input type="password" class="form-control" id="pwd" name="password">
+          <div class="field ">
+            <%= form.text_field :password %>
+          </div>
         </div>
       </div>
     </div>
@@ -62,7 +71,9 @@
           <label for="country">Country:</label>
         </div>
         <div class="col-md-6">
-          <input type="text" class="form-control" id="country" name="country">
+          <div class="field ">
+            <%= form.text_field :country %>
+          </div>
         </div>
       </div>
       <br>
@@ -71,7 +82,7 @@
           <label for="city">City:</label>
         </div>
         <div class="col-md-6">
-          <input type="text" class="form-control" id="city" name="city">
+          <%= form.text_field :city %>
         </div>
       </div>
       <br>
@@ -80,7 +91,7 @@
           <label for="bio">Biography:</label>
         </div>
         <div class="col">
-          <input type="text" class="form-control" id="bio" name="biography">
+          <%= form.text_area :biography %>
         </div>
       </div>
     </div>
@@ -94,7 +105,9 @@
       </div>
 
       <div class="col-md-2">
-        <a href="LogIn" rol="button" class="btn btn-primary text-white" >Create User</a>
+        <div class="actions">
+          <%= form.submit %>
+        </div>
       </div>
 
     </div>
@@ -104,8 +117,8 @@
         <a href="usePolicy" class="text-primary bg-white" data-toggle="tooltip" title="Click here to Show the document">Use Policy and Terms of Service</a>
       </div>
     </div>
-
   </form>
+  <%end %>
 <br>
   <br>
 </div>

@@ -73,7 +73,9 @@
               <div class="p-2 ml-auto "><%= post.created_at %></div>
             </div>
             <div class="p-2" ><%= post.description %></div>
-            <a href="#" rol="button" class="p-2 ml-auto btn btn-primary text-white" >Delete</a>
+            <div href="deletePost"  class="text-right" >
+              <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
           </div>
           <br>
         <%end %>
