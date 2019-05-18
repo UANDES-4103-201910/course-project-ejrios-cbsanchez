@@ -16,6 +16,6 @@ Post.create([{title:'cars',description:'in the parking area a car is parked badl
 Adminstrator.create([{name:'catalina sanchez', password: 'especial', nickname: 'cata2222', email:'cb@gmail.com' , country: 'chile', city:'santiago'}])
 SuperAdmin.create([{name:'claudio alvarez', password:'teacher', nickname:'clal', email:'cbalvarez@uandes.cl', e_password: 'onlyone'}])
 BlackList.create([{user_id: 3}])
-DumpList.create([{post_id:4}])
+DumpList.create([{post_id:3}])
 Commentary.create([{texto:'you have to go with your phone in the backpack', country:'chile', city: 'santiago', user_id: 3, post_id: 1, photo: 'document.png', file: 'document.pdf', location:'chile'}])
 

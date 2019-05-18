@@ -4,21 +4,33 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="application.scss">
 </head>
-<body>
-  <div class="container text-center">
-    <header class="GRIMMER">
-      <h1>GRIMMER</h1>
-    </header>
-    <h2>New User</h2>
-    <br>
 
+<div class="container">
+  <br>
+  <header class="GRIMMER ">
+    <h1>GRIMMER</h1>
+  </header>
+  <br>
+  <h4>New User</h4>
+  <br>
+  <%= render 'form', user: @user %>
 
-    <%= render 'form', user: @user %>
-
-    <%= link_to 'Back to the start page', :root %>
-
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-3">
+      <a href="usePolicy" class="text-primary bg-white" data-toggle="tooltip" title="Click here to Show the document">Use Policy and Terms of Service</a>
+    </div>
   </div>
+</div>
+
+<br>
+<br>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 </body>
 </html>
-

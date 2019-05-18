@@ -31,7 +31,7 @@
         Posts
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="publish">New Post</a>
+        <a class="dropdown-item" href="new">New Post</a>
         <a class="dropdown-item" href="deletePost">Delete Post</a>
       </div>
     </li>
@@ -68,6 +68,7 @@
       <div class="container-fluid Style2"><%= @user_profile1.biography %></div>
     </div>
 
+
   </div>
   <br>
   <br>
@@ -96,7 +97,11 @@
             <div class="container row" id="StylePost">
               <%= post.description %>
             </div>
+            <div class="container row " id="StylePost">
+               <%= link_to 'Edit', edit_post_path(post) %>
+            </div>
             <br>
+
           <% end %>
         </div>
       </div>

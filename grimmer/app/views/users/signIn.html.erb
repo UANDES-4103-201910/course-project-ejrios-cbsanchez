@@ -16,7 +16,7 @@
   <br>
   <h4>New User</h4>
   <br>
-  <%= form_with(model: @user, local: true , html: {multipart: true}) do |form| %>
+  <%= form_with(model: @user, action: "create",  local: true , html: {multipart: true}) do |form| %>
   <form>
     <div class="jumbotron container">
       <div class="form-group row">
@@ -105,23 +105,24 @@
       </div>
 
       <div class="col-md-2">
-        <div class="actions">
+        <a  rol="button" class="btn btn-primary text-white" >
           <%= form.submit %>
-        </div>
+        </a>
       </div>
 
     </div>
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-3">
-        <a href="usePolicy" class="text-primary bg-white" data-toggle="tooltip" title="Click here to Show the document">Use Policy and Terms of Service</a>
-      </div>
-    </div>
+
   </form>
   <%end %>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-3">
+      <a href="usePolicy" class="text-primary bg-white" data-toggle="tooltip" title="Click here to Show the document">Use Policy and Terms of Service</a>
+    </div>
+  </div>
+</div>
 <br>
   <br>
-</div>
 <script>
     $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();

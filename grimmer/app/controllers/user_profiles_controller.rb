@@ -28,8 +28,7 @@ class UserProfilesController < ApplicationController
   end
   def Admin_user_profile
 
-    @post_user = Post.where(user_id: 3)
-    @user_profile1 = User.find( 3)
+    @post_user = Post.where(user_id: 6)
 
   end
 

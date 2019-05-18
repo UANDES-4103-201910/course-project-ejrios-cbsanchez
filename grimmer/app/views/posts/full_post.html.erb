@@ -58,78 +58,80 @@
 </nav>
 <br>
 <br>
-<div class="container">
-  <div class="col-xl-12 Stylefullpost">
-    <div class="row">
-      <div class="col-sm-2 "><h3><%= @post.title %></h3></div>
-      <div class="col-sm-2"><%= @post.user.nickname %></div>
-      <div class="col-sm-6"></div>
-      <div class="col-sm-2"><%= @post.created_at%></div>
-    </div>
-    <div class="row ">
-      <div class="col-sm-8 Style2"><%= @post.description %></div>
-      <div class="col-sm-2"></div>
-      <div class="col-sm-2"><%= @post.photo %></div>
-    </div>
-    <div class="row">
-      <div class="col-sm-2"><%= @post.country %>, <%= @post.city %></div>
-      <div class="col-sm-4"></div>
-      <div class="col-sm-1">number</div>
-      <div class="col-sm-1 photo"><a href="#" rol="button" class="btn btn-dark" ><img src="Emoji_u1f44e.svg.png"></a></div>
-      <div class="col-sm-1">number</div>
+  <div class="container">
+    <div class="col-xl-12 Stylefullpost">
 
-      <div class="col-sm-1 photo"><a href="#" rol="button" class="btn btn-dark" ><img src="1f44d.png"></a></div>
+      <div class="row">
+        <div class="col-sm-2 "><h3><%= @post.title %></h3></div>
+        <div class="col-sm-2"><%= @post.user.nickname %></div>
+        <div class="col-sm-6"></div>
+        <div class="col-sm-2"><%= @post.created_at%></div>
+      </div>
+      <div class="row ">
+        <div class="col-sm-8 Style2"><%= @post.description %></div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2"><%= @post.photo %></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2"><%= @post.country %>, <%= @post.city %></div>
+        <div class="col-sm-4"></div>
+        <div class="col-sm-1">number</div>
+        <div class="col-sm-1 photo"><a href="#" rol="button" class="btn btn-dark" ><img src="Emoji_u1f44e.svg.png"></a></div>
+        <div class="col-sm-1">number</div>
 
-      <div class="col-sm-1"> <a href="#" rol="button" class="btn btn-dark" >Follow</a></div>
-      <div class="col-sm-1"> <a href="#" rol="button" class="btn btn-dark" >Report</a></div>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col-xl-4"></div>
-    <div class="col-xl-8" id="Style1">
-      <div class="media border p-3 ">
-        <div class="media-body">
-          <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius.</p>
-        </div>
-        <img src="img_avatar3.png" alt="John Doe" class="ml-3 mt-3 rounded-circle" style="width:60px;">
+        <div class="col-sm-1 photo"><a href="#" rol="button" class="btn btn-dark" ><img src="1f44d.png"></a></div>
+
+        <div class="col-sm-1"> <a href="#" rol="button" class="btn btn-dark" >Follow</a></div>
+        <div class="col-sm-1"> <a href="#" rol="button" class="btn btn-dark" >Report</a></div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xl-4"></div>
-    <div class="col-xl-8 Stylefullpost">
-      <div class="media border p-3 ">
-        <div class="media-body">
-          <h3>Comment</h3>
-          <form>
-            <div class="col">
-              <input type="text" class="form-control" name="commentary">
-            </div>
-            <br>
-            <div class="col-md-5">
-
-              <input type="file" class="form-control-file border" name="file">
-
-            </div>
-            <br>
-            <div class="row">
+    <br>
+    <div class="row">
+      <div class="col-xl-4"></div>
+      <div class="col-xl-8" id="Style1">
+        <div class="media border p-3 ">
+          <div class="media-body">
+            <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius.</p>
+          </div>
+          <img src="img_avatar3.png" alt="John Doe" class="ml-3 mt-3 rounded-circle" style="width:60px;">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-4"></div>
+      <div class="col-xl-8 Stylefullpost">
+        <div class="media border p-3 ">
+          <div class="media-body">
+            <h3>Comment</h3>
+            <form>
               <div class="col">
-                <button type="submit" class="btn btn-primary">Add File</button>
+                <input type="text" class="form-control" name="commentary">
               </div>
-              <div class= "col text-right ">
-                <button type="submit" class="btn btn-primary">Post</button>
-              </div>
-            </div>
+              <br>
+              <div class="col-md-5">
 
-          </form>
+                <input type="file" class="form-control-file border" name="file">
+
+              </div>
+              <br>
+              <div class="row">
+                <div class="col">
+                  <button type="submit" class="btn btn-primary">Add File</button>
+                </div>
+                <div class= "col text-right ">
+                  <button type="submit" class="btn btn-primary">Post</button>
+                </div>
+              </div>
+
+            </form>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 
-</div>
 
 </div>
 

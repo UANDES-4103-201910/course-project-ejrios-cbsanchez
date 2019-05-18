@@ -64,7 +64,7 @@
           <% @post_recent.each do |post| %>
             <div class="container-fluid row " id="StylePost">
               <div class="col description">
-                <%= link_to post.title , full_post_path(post.id) %>
+                <%= link_to post.title , full_post/post.id %>
               </div>
 
               <div class="col text-right">

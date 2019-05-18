@@ -30,6 +30,10 @@ class UsersController < ApplicationController
   def intro
   end
 
+  def signIn
+
+  end
+
   # POST /users
   # POST /users.json
   def create
