@@ -31,7 +31,7 @@
         Posts
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="publish">New Post</a>
+        <a class="dropdown-item" href="new">New Post</a>
         <a class="dropdown-item" href="deletePost">Delete Post</a>
       </div>
     </li>
@@ -64,7 +64,7 @@
           <% @post_recent.each do |post| %>
             <div class="container-fluid row " id="StylePost">
               <div class="col description">
-                <%= link_to post.title , full_post/post.id %>
+                <%= link_to post.title , :action => :full_post , :id => post.id  %>
               </div>
 
               <div class="col text-right">
@@ -95,7 +95,7 @@
           <% @post_all.each do |post| %>
             <div class="container-fluid row " id="StylePost">
               <div class="col">
-                <%= link_to post.title , href= full_post_path(post.id) %>
+                <%= link_to post.title , :action => :full_post , :id => post.id %>
               </div>
 
               <div class="col text-right">

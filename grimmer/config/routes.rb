@@ -8,19 +8,16 @@ Rails.application.routes.draw do
   resources :super_admins
   resources :posts
   get '/users/intro', to: 'users#intro'
-  get '/users/signIn', to: 'users#SignIn'
   get 'index', to: 'index',controller:'users'
   get 'index', to: 'index',controller:'posts'
-  get 'new', to: 'new',controller:'posts'
-  get "full_post/:id" => "posts#full_post"
+  get 'new', to: 'new' ,controller: 'posts'
+  get 'new_users', to: "users#new", as:"new_users"
 
-
+  get 'full_post', to: 'full_post', controller: 'posts'
   get 'home', to: 'home' ,controller: 'posts'
   get 'show', to: 'show', controller: 'users'
-  get 'new', to: 'new', controller: 'users'
   get 'LogIn', to: 'LogIn',  controller: 'users'
   get 'Profile', to: 'Profile', controller: 'user_profiles'
-  get 'publish', to: 'publish', controller: 'posts'
   get 'deletePost', to: 'deletePost', controller: 'posts'
   get 'search_user', to: 'search_user',controller: 'users'
   get 'search_post', to: 'search_post', controller:'posts'
