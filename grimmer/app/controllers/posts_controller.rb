@@ -37,6 +37,7 @@ class PostsController < ApplicationController
 
   def full_post
     @post = Post.find(params[:id])
+    @comment = Commentary.where("post_id = ?", @post.id)
   end
 
   def deletePost

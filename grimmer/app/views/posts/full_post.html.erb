@@ -65,8 +65,8 @@
         <div class="col-sm-2 "><h3><%= @post.title %></h3></div>
         <div class="col-sm-2"><%= @post.user.nickname %>
            <%= link_to @post.user.nickname , :controller => :user_profiles , :action => :Profile , :id => @post.user.id  %></div>
-        <div class="col-sm-6"></div>
-        <div class="col-sm-2"><%= @post.created_at%></div>
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4 text-right"><%= @post.created_at.strftime('%B %d, %Y at %H:%M')%></div>
       </div>
       <div class="row ">
         <div class="col-sm-8 Style2"><%= @post.description %></div>
@@ -77,10 +77,10 @@
         <div class="col-sm-2"><%= @post.country %>, <%= @post.city %></div>
         <div class="col-sm-4"></div>
         <div class="col-sm-1">number</div>
-        <div class="col-sm-1 photo"><a href="#" rol="button" class="btn btn-dark" ><img src="Emoji_u1f44e.svg.png"></a></div>
+        <div class="col-sm-1 photo"><a href="#" rol="button" class="btn btn-dark" ><%= image_tag("Emoji_u1f44e.svg.png", width:'30px')%></a></div>
         <div class="col-sm-1">number</div>
 
-        <div class="col-sm-1 photo"><a href="#" rol="button" class="btn btn-dark" ><img src="1f44d.png"></a></div>
+        <div class="col-sm-1 photo"><a href="#" rol="button" class="btn btn-dark" ><%= image_tag("1f44d.png", width:'30px')%></a></div>
 
         <div class="col-sm-1"> <a href="#" rol="button" class="btn btn-dark" >Follow</a></div>
         <div class="col-sm-1"> <a href="#" rol="button" class="btn btn-dark" >Report</a></div>
@@ -88,16 +88,21 @@
     </div>
     <br>
     <div class="row">
+
       <div class="col-xl-4"></div>
       <div class="col-xl-8" id="Style1">
-        <div class="media border p-3 ">
-          <div class="media-body">
-            <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius.</p>
-          </div>
-          <img src="img_avatar3.png" alt="John Doe" class="ml-3 mt-3 rounded-circle" style="width:60px;">
-        </div>
+        <% @comment.each do |com| %>
+         <div class="media border p-3 ">
+              <div class="media-body container">
+                <h4> <%= link_to com.user.name , :controller => :user_profiles , :action => :Profile , :id => com.user.id  %>
+                  <small><i><%= com.created_at.strftime('%B %d, %Y at %H:%M') %></i></small></h4>
+                <p><%= com.texto %></div>
+              <img src="img_avatar3.png" alt="John Doe" class="ml-3 mt-3 rounded-circle" style="width:60px;">
+            <br>
+         </div>
+        <%end %>
       </div>
+
     </div>
     <div class="row">
       <div class="col-xl-4"></div>
@@ -105,27 +110,7 @@
         <div class="media border p-3 ">
           <div class="media-body">
             <h3>Comment</h3>
-            <form>
-              <div class="col">
-                <input type="text" class="form-control" name="commentary">
-              </div>
-              <br>
-              <div class="col-md-5">
-
-                <input type="file" class="form-control-file border" name="file">
-
-              </div>
-              <br>
-              <div class="row">
-                <div class="col">
-                  <button type="submit" class="btn btn-primary">Add File</button>
-                </div>
-                <div class= "col text-right ">
-                  <button type="submit" class="btn btn-primary">Post</button>
-                </div>
-              </div>
-
-            </form>
+            <%= render 'commentaries/form', commentary: @commentary %>
           </div>
         </div>
       </div>

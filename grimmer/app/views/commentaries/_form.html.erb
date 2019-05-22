@@ -1,57 +1,52 @@
 <%= form_with(model: commentary, local: true, html: {multipart: true}) do |form| %>
-  <% if commentary.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(commentary.errors.count, "error") %> prohibited this commentary from being saved:</h2>
 
-      <ul>
-      <% commentary.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="container text-left">
+    <div class="field">
+      <%= form.label :user_id %>
+      <%= form.text_field :user_id %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :texto %>
-    <%= form.text_area :texto %>
-  </div>
+    <div class="field">
+      <%= form.label :post_id %>
+      <%= form.text_field :post_id %>
+    </div>
 
-  <div class="field">
-    <%= form.label :country %>
-    <%= form.text_field :country %>
-  </div>
 
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
-  </div>
+    <div class="field">
+      <div class="row">
+        <div class="col-md-3">
+          <%= form.label :texto %>
+        </div>
+        <div class="col-md-6">
+          <%= form.text_area :texto , class: "form-control"%>
+        </div>
+      </div>
+     </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
+    <div class="field">
+      <div class="row">
+        <div class="col-md-3">
+          <%= form.label :photo %>
+        </div>
+        <div class="col-md-6">
+          <%= form.file_field :photo %>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :post_id %>
-    <%= form.text_field :post_id %>
-  </div>
+    <div class="field">
+      <div class="row">
+        <div class="col-md-3">
+          <%= form.label :file %>
+        </div>
+        <div class="col-md-6">
+          <%= form.file_field :file %>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :photo %>
-    <%= form.file_field :photo %>
-  </div>
-
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
-  </div>
-
-  <div class="field">
-    <%= form.label :file %>
-    <%= form.text_field :file %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
   </div>
 <% end %>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'index', to: 'index',controller:'posts'
   get 'new', to: 'new' ,controller: 'posts'
   get 'new_users', to: "users#new", as:"new_users"
+  get 'superAdminNew', to: "adminstrators#new", as: "superAdminNew"
 
   get 'full_post', to: 'full_post', controller: 'posts'
   get 'home', to: 'home' ,controller: 'posts'
@@ -28,7 +29,6 @@ Rails.application.routes.draw do
   get 'dumplist', to: 'dumplist', controller: 'dump_lists'
   get 'signIn', to: 'signIn',  controller: 'users'
   get 'usePolicy', to: 'usePolicy',  controller: 'users'
-  get 'superAdminNew', to: 'superAdminNew', controller: 'super_admins'
   get 'view_post', to: 'view_post', controller: 'posts'
   get 'modify_admin' , to: 'modify_admin', controller: 'adminstrators'
   get 'Admin_user_profile', to: 'Admin_user_profile', controller: 'user_profiles'

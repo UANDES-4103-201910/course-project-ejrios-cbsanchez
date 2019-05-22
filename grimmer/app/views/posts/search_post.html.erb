@@ -65,7 +65,7 @@
           <div class="searchable">
             <div class="container-fluid row " id="StylePost">
               <div class="col">
-                <a href="#" class="text-primary description "   ><%= post.title %></a>
+                <%= link_to post.title , :action => :full_post , :id => post.id  %>
               </div>
 
               <div class="col text-right">

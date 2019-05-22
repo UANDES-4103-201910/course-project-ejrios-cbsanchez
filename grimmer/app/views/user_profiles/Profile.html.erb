@@ -6,7 +6,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-sm bg-info navbar-dark">
-  <img src="angry-monkey.jng" style="width: 40px;" alt="angry-monkey">
+  <%= image_tag("angry-monkey.jpg", width:'80px') %>
 </nav>
 
 <nav class="navbar navbar-expand-sm bg-info navbar-dark">
@@ -58,14 +58,17 @@
 <br>
 <div class="container">
   <div class="container-fluid row">
-    <div class="col-sm-3 "> <%= @user_profile1.photo %>
+    <div class="col-sm-3 ">
+      <% if @user.photo.attached? %>
+       <%= image_tag(@user.photo, style: 'width:100%') %>
+      <%end  %>
     </div>
     <div class="col-sm-3 ">
-      <div class="row h3"><%= @user_profile1.name %></div>
-      <div class="row"><%= @user_profile1.country %> , <%= @user_profile1.city %></div>
+      <div class="row h3"><%= @user.name %></div>
+      <div class="row"><%= @user.country %> , <%= @user.city %></div>
     </div>
     <div class="col-sm-6">
-      <div class="container-fluid Style2"><%= @user_profile1.biography %></div>
+      <div class="container-fluid Style2"><%= @user.biography %></div>
     </div>
 
 
@@ -91,7 +94,7 @@
               </div>
 
               <div class="col text-right">
-                <%= post.created_at %>
+                <%= post.created_at.strftime('%B %d, %Y at %H:%M') %>
               </div>
             </div>
             <div class="container row" id="StylePost">
@@ -118,7 +121,7 @@
               </div>
 
               <div class="col text-right">
-                <%= post.created_at %>
+                <%= post.created_at.strftime('%B %d, %Y at %H:%M') %>
               </div>
             </div>
             <div class="container row" id="StylePost">

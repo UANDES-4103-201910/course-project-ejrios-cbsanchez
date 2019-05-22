@@ -22,8 +22,8 @@ class UserProfilesController < ApplicationController
   end
 
   def Profile
-    @post_user = Post.where(user_id: 1)
-    @user_profile1 = User.find( 1)
+    @user = User.find(params[:id])
+    @post_user = Post.where("user_id =?", @user.id)
 
   end
   def Admin_user_profile
