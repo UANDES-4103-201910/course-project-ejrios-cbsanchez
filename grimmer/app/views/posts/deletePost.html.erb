@@ -70,7 +70,7 @@
               <div class="p-2  ">
                 <a href="#" class="text-body description" data-toggle="tooltip" title="Click here to see full post" ><%= post.title %></a>
               </div>
-              <div class="p-2 ml-auto "><%= post.created_at %></div>
+              <div class="p-2 ml-auto "><%= post.created_at.strftime('%B %d, %Y at %H:%M') %></div>
             </div>
             <div class="p-2" ><%= post.description %></div>
             <div href="deletePost"  class="text-right" >

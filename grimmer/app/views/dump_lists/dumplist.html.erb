@@ -70,11 +70,11 @@
               <div class="col">
                 <div class="container-fluid row ">
                   <div class="col">
-                    <a href="#" class="text-primary description "   ><%= dum.post.title %></a>
+                    <a href="#" class="text-primary  "   ><%= dum.post.title %></a>
                   </div>
 
                   <div class="col text-right">
-                    <%= dum.post.created_at %>
+                    <%= dum.post.created_at.strftime('%B %d, %Y at %H:%M') %>
                   </div>
                 </div>
                 <div class="container row" >

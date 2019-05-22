@@ -98,7 +98,7 @@
               </div>
 
               <div class="col text-right">
-                <%= post.created_at %>
+                <%= post.created_at.strftime('%B %d, %Y at %H:%M') %>
               </div>
             </div>
             <div class="container row" id="StylePost">
@@ -121,7 +121,7 @@
               </div>
 
               <div class="col text-right">
-                <%= post.created_at %>
+                <%= post.created_at.strftime('%B %d, %Y at %H:%M') %>
               </div>
             </div>
             <div class="container row" id="StylePost">
