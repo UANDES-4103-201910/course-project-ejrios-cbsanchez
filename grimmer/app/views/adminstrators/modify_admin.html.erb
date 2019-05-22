@@ -101,27 +101,27 @@
 
     </div>
     <div class="col-md-1"></div>
-
+    <%= form_with(model: @admin, local: true, html: {multipart: true}) do |form| %>
     <div class="jumbotron col-md-5">
-      <label>AdminName</label>
+      <%= form.label :name %>
       <br>
       <div class="col">
-        <label for="pwd">New Password:</label>
+        <%= form.label :password %>
       </div>
       <div class="col">
-        <input type="password" class="form-control" id="pwd" name="password">
+        <%= form.text_field :password , class: "form-control" %>
       </div>
       <div class="col">
-        <label for="ctry">Country:</label>
+        <%= form.label :country %>
       </div>
       <div class="col">
-        <input type="text" class="form-control" id="ctry" name="country">
+        <%= form.text_field :country, class: "form-control"  %>
       </div>
       <div class="col">
-        <label for="cty">City:</label>
+        <%= form.label :city %>
       </div>
       <div class="col">
-        <input type="text" class="form-control" id="cty" name="city">
+        <%= form.text_field :city, class: "form-control"  %>
       </div>
       <div class="col">
         <label>Last Access:</label>
@@ -136,11 +136,15 @@
       </div>
       <br>
       <div row>
-        <button type="submit" rol="button" class="btn btn-primary text-white">Delete</button>
-        <button type="submit" rol="button" class="btn btn-primary text-white">Modify</button>
+        <div href="deletePost"  class="text-right" >
+          <%= link_to 'Delete', @admin , method: :delete, controller: Adminstrator,  data: { confirm: 'Are you sure?' } %>
+        </div>
+        <div class="actions">
+          <%= form.submit %>
+        </div>
       </div>
-
     </div>
+    <%end %>
   </div>
 
 </div>

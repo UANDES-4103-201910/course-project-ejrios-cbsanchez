@@ -69,7 +69,7 @@
           <div class="col searchable">
             <div class="container-fluid row ">
               <div class="col">
-                <%= link_to user.nickname , Profile_path(user.id) %>
+                <%= link_to user.nickname , :controller => :user_profiles , :action => :Admin_user_profile , :id => user.id  %>
               </div>
 
               <div class="col text-right">

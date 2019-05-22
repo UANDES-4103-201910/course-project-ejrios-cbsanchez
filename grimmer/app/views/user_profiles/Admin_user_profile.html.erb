@@ -51,29 +51,18 @@
 <br>
 <br>
 <br>
-<%= form_with(model: @user_profile1, local: true, html: {multipart: true}) do |form| %>
-  <% if @user_profile1.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-        <% user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with(model: @user, local: true, html: {multipart: true}) do |form| %>
 <div class="container">
   <div class="container-fluid row">
 
-    <div class="col-sm-3 "> <%= @user_profile1.photo %>
+    <div class="col-sm-3 "> <%= @user.photo %>
     </div>
     <div class="col-sm-3 ">
       <div class="row h5"><%= form.text_field :name %></div>
       <div class="row"><%= form.text_field :country %> , <%= form.text_field :city %></div>
     </div>
     <div class="col-sm-6">
-      <div class="container-fluid Style2"><%= form.text_area :biography %></div>
+      <div class="container-fluid Style2"><%= form.text_area :biography , class: "form-control"%></div>
     </div>
 
   </div>
@@ -136,8 +125,8 @@
   <br>
   <br>
   <div class="row">
-    <div class="col text-right">
-      <button type="button" class="btn btn-primary"> Update</button>
+    <div class="actions">
+      <%= form.submit %>
     </div>
   </div>
 <% end %>

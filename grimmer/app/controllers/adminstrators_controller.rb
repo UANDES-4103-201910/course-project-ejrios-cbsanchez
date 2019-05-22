@@ -23,6 +23,7 @@ class AdminstratorsController < ApplicationController
   
   def modify_admin
     @admin_all = Adminstrator.all
+    @admin = Adminstrator(param[:id])
   end
 
   # POST /adminstrators

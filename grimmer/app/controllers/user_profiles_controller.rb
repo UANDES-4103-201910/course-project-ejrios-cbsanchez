@@ -27,7 +27,7 @@ class UserProfilesController < ApplicationController
 
   end
   def Admin_user_profile
-
+    @user = User.find(params[:id])
     @post_user = Post.where(user_id: 6)
 
   end
