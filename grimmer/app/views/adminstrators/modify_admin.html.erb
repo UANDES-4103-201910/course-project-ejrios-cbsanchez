@@ -79,7 +79,7 @@
               <div class="col searchable">
                 <div class="container-fluid row ">
                   <div class="col">
-                    <a href="#" class="text-primary "   ><%= admin.name %></a>
+                    <%= link_to admin.name , :action => :modify_admin , :id => admin.id  %>
                   </div>
 
                   <div class="col text-right">
@@ -100,51 +100,52 @@
       </table>
 
     </div>
-    <div class="col-md-1"></div>
-    <%= form_with(model: @admin, local: true, html: {multipart: true}) do |form| %>
+    <div class="col-md-1 "></div>
+
     <div class="jumbotron col-md-5">
-      <%= form.label :name %>
-      <br>
-      <div class="col">
-        <%= form.label :password %>
-      </div>
-      <div class="col">
-        <%= form.text_field :password , class: "form-control" %>
-      </div>
-      <div class="col">
-        <%= form.label :country %>
-      </div>
-      <div class="col">
-        <%= form.text_field :country, class: "form-control"  %>
-      </div>
-      <div class="col">
-        <%= form.label :city %>
-      </div>
-      <div class="col">
-        <%= form.text_field :city, class: "form-control"  %>
-      </div>
-      <div class="col">
-        <label>Last Access:</label>
-      </div>
-      <br>
-      <label>Authorisation</label>
-      <div class="col">
-        <label for="pwda">SuperAdmin Password:</label>
-      </div>
-      <div class="col">
-        <input type="password" class="form-control" id="pwa" name="passwordAdmin">
-      </div>
-      <br>
-      <div row>
-        <div href="deletePost"  class="text-right" >
-          <%= link_to 'Delete', @admin , method: :delete, controller: Adminstrator,  data: { confirm: 'Are you sure?' } %>
+      <%= form_with(model: @admin, local: true, html: {multipart: true}) do |form| %>
+        <%= form.label :name %>
+        <br>
+        <div class="col">
+          <%= form.label :password %>
         </div>
-        <div class="actions">
-          <%= form.submit %>
+        <div class="col">
+          <%= form.text_field :password , class: "form-control" %>
         </div>
-      </div>
+        <div class="col">
+          <%= form.label :country %>
+        </div>
+        <div class="col">
+          <%= form.text_field :country, class: "form-control"  %>
+        </div>
+        <div class="col">
+          <%= form.label :city %>
+        </div>
+        <div class="col">
+          <%= form.text_field :city, class: "form-control"  %>
+        </div>
+        <div class="col">
+          <label>Last Access:</label>
+        </div>
+        <br>
+        <label>Authorisation</label>
+        <div class="col">
+          <label for="pwda">SuperAdmin Password:</label>
+        </div>
+        <div class="col">
+          <input type="password" class="form-control" id="pwa" name="passwordAdmin">
+        </div>
+        <br>
+        <div row>
+          <div href="deletePost"  class="text-right" >
+            <%= link_to 'Delete', @admin , method: :delete, controller: Adminstrator,  data: { confirm: 'Are you sure?' } %>
+          </div>
+          <div class="actions">
+            <%= form.submit %>
+          </div>
+        </div>
+      <%end %>
     </div>
-    <%end %>
   </div>
 
 </div>

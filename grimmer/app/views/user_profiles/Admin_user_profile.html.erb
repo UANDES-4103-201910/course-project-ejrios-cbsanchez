@@ -67,7 +67,14 @@
 
   </div>
   <br>
-  <br>
+  <div class="container-fluid row">
+    <div class="col-md-6"></div>
+    <div class="col-md-6 text-right">
+      <label >user password: </label>
+      <%= form.text_field :password %>
+    </div>
+
+  </div>
   <br>
   <br>
   <br>
@@ -83,7 +90,7 @@
           <% @post_user.each do |post| %>
             <div class="container-fluid row " id="StylePost">
               <div class="col">
-                <a href="full_post" class="text-primary description "   ><%= post.title %></a>
+                <a href="#" class="text-primary description "   ><%= post.title %></a>
               </div>
 
               <div class="col text-right">
@@ -106,7 +113,7 @@
           <% @post_user.each do |post| %>
             <div class="container-fluid row " id="StylePost">
               <div class="col">
-                <a href="full_post" class="text-primary description "   ><%= post.title %></a>
+                <a href="#" class="text-primary description "   ><%= post.title %></a>
               </div>
 
               <div class="col text-right">
@@ -129,6 +136,7 @@
       <%= form.submit %>
     </div>
   </div>
+  <%= button_to 'Delete', @user , method: :delete, controller: User,  data: { confirm: 'Are you sure?' } %>
 <% end %>
 <br>
   <div class="row">

@@ -67,7 +67,7 @@
         <% @black_list1.each do |user| %>
          <div class="row">
             <div class="col-md-4">
-              <%= link_to user.user.nickname , Admin_user_profile_path(user.user.id) %>
+              <%= link_to user.user.nickname , :controller => :user_profiles , :action => :Admin_user_profile , :id => user.user.id  %>
               <br>
               <h10> <%= user.user.email %> </h10>
             </div>
@@ -77,7 +77,7 @@
               <%= user.user.photo %>
             </div>
             <div class="col-md-4">
-              <button type="submit" class="btn btn-primary">Restore</button>
+              <%= link_to 'Restore', user , method: :delete, controller: BlackList,  data: { confirm: 'Are you sure?' } %>
             </div>
          </div>
         <%end %>

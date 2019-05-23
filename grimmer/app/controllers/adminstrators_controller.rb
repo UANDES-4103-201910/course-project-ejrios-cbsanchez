@@ -23,7 +23,12 @@ class AdminstratorsController < ApplicationController
   
   def modify_admin
     @admin_all = Adminstrator.all
-    @admin = Adminstrator(param[:id])
+    if params[:id] == nil
+      @admin = blank?
+    else
+      @admin = Adminstrator.find(params[:id])
+    end
+
   end
 
   # POST /adminstrators
@@ -33,7 +38,7 @@ class AdminstratorsController < ApplicationController
 
     respond_to do |format|
       if @adminstrator.save
-        format.html { redirect_to @adminstrator, notice: 'Adminstrator was successfully created.' }
+        format.html { redirect_to home_admin_path, notice: 'Adminstrator was successfully created.' }
         format.json { render :show, status: :created, location: @adminstrator }
       else
         format.html { render :new }
@@ -47,7 +52,7 @@ class AdminstratorsController < ApplicationController
   def update
     respond_to do |format|
       if @adminstrator.update(adminstrator_params)
-        format.html { redirect_to @adminstrator, notice: 'Adminstrator was successfully updated.' }
+        format.html { redirect_to modify_admin_path, notice: 'Adminstrator was successfully updated.' }
         format.json { render :show, status: :ok, location: @adminstrator }
       else
         format.html { render :edit }
@@ -61,7 +66,7 @@ class AdminstratorsController < ApplicationController
   def destroy
     @adminstrator.destroy
     respond_to do |format|
-      format.html { redirect_to adminstrators_url, notice: 'Adminstrator was successfully destroyed.' }
+      format.html { redirect_to modify_admin_path, notice: 'Adminstrator was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

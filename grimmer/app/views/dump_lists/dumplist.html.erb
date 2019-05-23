@@ -70,7 +70,7 @@
               <div class="col">
                 <div class="container-fluid row ">
                   <div class="col">
-                    <a href="#" class="text-primary  "   ><%= dum.post.title %></a>
+                    <%= link_to dum.post.title , :controller => :posts , :action => :view_post , :id => dum.post.id  %>
                   </div>
 
                   <div class="col text-right">
@@ -87,7 +87,7 @@
                 </div>
               </div>
               <div class="col text-right">
-                <button type="submit" class="btn btn-primary">Restore</button>
+                <%= link_to 'Restore', dum , method: :delete, controller: DumpList,  data: { confirm: 'Are you sure?' } %>
               </div>
               <br>
             <% end %>
