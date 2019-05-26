@@ -8,8 +8,13 @@ Rails.application.routes.draw do
   resources :super_admins
   resources :posts
   resources :sessions
+  resources :posts do
+    resources :upvotes
+  end
+  resources :posts do
+    resources :downvotes
+  end
 
-  get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
   get '/users/intro', to: 'users#intro'

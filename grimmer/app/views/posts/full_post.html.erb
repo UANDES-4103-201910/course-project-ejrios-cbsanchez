@@ -75,11 +75,10 @@
       <div class="row">
         <div class="col-sm-2"><%= @post.country %>, <%= @post.city %></div>
         <div class="col-sm-4"></div>
-        <div class="col-sm-1">number</div>
-        <div class="col-sm-1 photo"><a href="#" rol="button" class="btn btn-dark" ><%= image_tag("Emoji_u1f44e.svg.png", width:'30px')%></a></div>
-        <div class="col-sm-1">number</div>
-
-        <div class="col-sm-1 photo"><a href="#" rol="button" class="btn btn-dark" ><%= image_tag("1f44d.png", width:'30px')%></a></div>
+        <div class="col-sm-1 text-right "><p><%= @post.downvotes.count %></p></div>
+        <div class="col-sm-1 photo"><%= link_to image_tag("Emoji_u1f44e.svg.png", width:'30px'), post_downvotes_path(@post), method: :post %></a></div>
+        <div class="col-sm-1 text-right"><p><%= @post.upvotes.count %></p></div>
+        <div class="col-sm-1 photo"><%= link_to image_tag("1f44d.png", width:'30px'), post_upvotes_path(@post), method: :post %></div>
 
         <div class="col-sm-1"> <a href="#" rol="button" class="btn btn-dark" >Follow</a></div>
         <div class="col-sm-1"> <a href="#" rol="button" class="btn btn-dark" >Report</a></div>

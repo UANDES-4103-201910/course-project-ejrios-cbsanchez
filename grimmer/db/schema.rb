@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_22_030307) do
+ActiveRecord::Schema.define(version: 2019_05_26_234052) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -66,6 +66,15 @@ ActiveRecord::Schema.define(version: 2019_05_22_030307) do
     t.index ["user_id"], name: "index_commentaries_on_user_id"
   end
 
+  create_table "downvotes", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_downvotes_on_post_id"
+    t.index ["user_id"], name: "index_downvotes_on_user_id"
+  end
+
   create_table "dump_lists", force: :cascade do |t|
     t.integer "post_id"
     t.datetime "created_at", null: false
@@ -96,6 +105,15 @@ ActiveRecord::Schema.define(version: 2019_05_22_030307) do
     t.string "e_password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "upvotes", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_upvotes_on_post_id"
+    t.index ["user_id"], name: "index_upvotes_on_user_id"
   end
 
   create_table "user_profiles", force: :cascade do |t|

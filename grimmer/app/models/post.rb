@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many :commentaries
+  has_many :upvotes , dependent: :destroy
+  has_many :downvotes, dependent: :destroy
   validates :title, presence: true
   validates :description, presence: true
   validates :type_of_post, presence: true

@@ -26,6 +26,7 @@ class PostsController < ApplicationController
   def home
     @post_recent = Post.all.order(:created_at).limit(20)
     @post_all = Post.all
+    @post_comment = Post.all
   end
 
   def search_post
@@ -47,6 +48,8 @@ class PostsController < ApplicationController
   def full_post
     @post = Post.find(params[:id])
     @comment = Commentary.where("post_id = ?", @post.id)
+    
+
   end
 
   def deletePost

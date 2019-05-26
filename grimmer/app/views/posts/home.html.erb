@@ -22,7 +22,7 @@
       <a class="nav-link" href="home">Home</a>
     </li>
     <li class="nav-item">
-      <%= link_to 'Profile' , :controller => :user_profiles , :action => :Profile , :id => @current_user.id%>
+      <a class="nav-link" href="Profile">Profile</a>
 
     </li>
 
@@ -96,7 +96,7 @@
       <div  class="container Style2 end">
         <p id="notice"><%= notice %></p>
         <div  class="container Style2 end">
-          <% @post_all.each do |post| %>
+          <% @post_comment.each do |post| %>
             <div class="container-fluid row " id="StylePost">
               <div class="col">
                 <%= link_to post.title , :action => :full_post , :id => post.id %>
