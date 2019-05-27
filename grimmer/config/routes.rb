@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     resources :downvotes
   end
 
+  post 'create_commentarie', to: 'posts#create_commentarie', as: 'create_commentarie'
+  put 'update_user', to: 'user_profiles#update_user', as: 'update_user'
+
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
   get '/users/intro', to: 'users#intro'

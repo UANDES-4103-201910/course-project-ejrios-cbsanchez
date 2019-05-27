@@ -44,11 +44,9 @@ class PostsController < ApplicationController
 
   end
 
-
   def full_post
-    @post = Post.find(params[:id])
-    @comment = Commentary.where("post_id = ?", @post.id)
-    
+    @post_full = Post.find(params[:id])
+    @comment = Commentary.where("post_id = ?", @post_full.id)
 
   end
 
@@ -56,6 +54,21 @@ class PostsController < ApplicationController
     @post_user = Post.where(user_id: 1)
   end
 
+
+  def create_commentarie
+    @commentary = Commentary.create(commentary_params)
+    @commentary.user_id = @current_user.id
+
+    respond_to do |format|
+      if @commentary.save
+        format.html { redirect_to home_path, notice: 'Commentary was successfully created.' }
+        format.json { render :show, status: :created, location: @commentary }
+      else
+        format.html { render :new }
+        format.json { render json: @commentary.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   # POST /posts
   # POST /posts.json
   def create
@@ -102,7 +115,9 @@ class PostsController < ApplicationController
     def set_post
       @post = Post.find(params[:id])
     end
-
+  def commentary_params
+    params.require(:commentary).permit(:texto, :country, :city, :user_id, :post_id, :photo, :file, :location)
+  end
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :description, :user_id, :type_of_post, :country, :city, :photo, :file, :location)

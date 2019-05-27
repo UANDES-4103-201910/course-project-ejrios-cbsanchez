@@ -116,11 +116,11 @@
         <div class="row">
           <div class="col-sm-2"><%= form.country %>, <%= form.city %></div>
           <div class="col-sm-2"></div>
-          <div class="col-sm-1">number</div>
-          <div class="col-sm-1 photosmall"><a href="#" rol="button" class="btn btn-dark" ><%= image_tag("Emoji_u1f44e.svg.png", width:'30px')%></a></div>
-          <div class="col-sm-1">number</div>
+          <div class="col-sm-1"><%= @post.downvotes.count %></div>
+          <div class="col-sm-1 photosmall"><%= image_tag("Emoji_u1f44e.svg.png", width:'30px')%></div>
+          <div class="col-sm-1"><%= @post.upvotes.count %></div>
 
-          <div class="col-sm-1 photosmall"><a href="#" rol="button" class="btn btn-dark" ><%= image_tag("1f44d.png", width:'30px')%></a></div>
+          <div class="col-sm-1 photosmall"><%= image_tag("1f44d.png", width:'30px')%></div>
 
           <div class="col-sm-2"> <a href="#" rol="button" class="btn btn-dark" >Follow</a></div>
           <div class="col-sm-2"> <a href="#" rol="button" class="btn btn-dark" >Report</a></div>

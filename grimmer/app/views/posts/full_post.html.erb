@@ -62,23 +62,23 @@
     <div class="col-xl-12 Stylefullpost">
 
       <div class="row">
-        <div class="col"><h3><%= @post.title %></h3></div>
+        <div class="col"><h3><%= @post_full.title %></h3></div>
         <div class="col">
-           <%= link_to @post.user.nickname , :controller => :user_profiles , :action => :Profile , :id => @post.user.id  %></div>
-        <div class="col text-right"><%= @post.created_at.strftime('%B %d, %Y at %H:%M')%></div>
+           <%= link_to @post_full.user.nickname , :controller => :user_profiles , :action => :Profile , :id => @post_full.user.id  %></div>
+        <div class="col text-right"><%= @post_full.created_at.strftime('%B %d, %Y at %H:%M')%></div>
       </div>
       <div class="row ">
-        <div class="col-sm-8 Style2"><%= @post.description %></div>
+        <div class="col-sm-8 Style2"><%= @post_full.description %></div>
         <div class="col-sm-2"></div>
-        <div class="col-sm-2"><%= @post.photo %></div>
+        <div class="col-sm-2"><%= @post_full.photo %></div>
       </div>
       <div class="row">
-        <div class="col-sm-2"><%= @post.country %>, <%= @post.city %></div>
+        <div class="col-sm-2"><%= @post_full.country %>, <%= @post_full.city %></div>
         <div class="col-sm-4"></div>
-        <div class="col-sm-1 text-right "><p><%= @post.downvotes.count %></p></div>
-        <div class="col-sm-1 photo"><%= link_to image_tag("Emoji_u1f44e.svg.png", width:'30px'), post_downvotes_path(@post), method: :post %></a></div>
-        <div class="col-sm-1 text-right"><p><%= @post.upvotes.count %></p></div>
-        <div class="col-sm-1 photo"><%= link_to image_tag("1f44d.png", width:'30px'), post_upvotes_path(@post), method: :post %></div>
+        <div class="col-sm-1 text-right "><p><%= @post_full.downvotes.count %></p></div>
+        <div class="col-sm-1 photo"><%= link_to image_tag("Emoji_u1f44e.svg.png", width:'30px'), post_downvotes_path(@post_full), method: :post %></a></div>
+        <div class="col-sm-1 text-right"><p><%= @post_full.upvotes.count %></p></div>
+        <div class="col-sm-1 photo"><%= link_to image_tag("1f44d.png", width:'30px'), post_upvotes_path(@post_full), method: :post %></div>
 
         <div class="col-sm-1"> <a href="#" rol="button" class="btn btn-dark" >Follow</a></div>
         <div class="col-sm-1"> <a href="#" rol="button" class="btn btn-dark" >Report</a></div>
@@ -108,7 +108,47 @@
         <div class="media border p-3 ">
           <div class="media-body">
             <h3>Comment</h3>
-            <%= render 'commentaries/form', commentary: @commentary %>
+              <%= form_for Commentary.new ,  url: {action: "create_commentarie"}, html: {class: "nifty_form"} do |f| %>
+                <div class="container text-left">
+                  <div class="field">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <%= f.label :texto %>
+                      </div>
+                      <div class="col-md-6">
+                        <%= f.text_area :texto , class: "form-control"%>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <%= f.label :photo %>
+                      </div>
+                      <div class="col-md-6">
+                        <%= f.file_field :photo %>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <%= f.label :file %>
+                      </div>
+                      <div class="col-md-6">
+                        <%= f.file_field :file %>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="actions">
+                    <%= f.submit  %>
+                  </div>
+                </div>
+
+              <% end %>
           </div>
         </div>
       </div>
