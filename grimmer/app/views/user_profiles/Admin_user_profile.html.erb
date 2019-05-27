@@ -68,7 +68,7 @@
   </div>
   <br>
   <div class="container-fluid row">
-    <div class="col-md-6"></div>
+    <div class="col-md-6">Last Access: <%= @user.last_access_at.strftime('%B %d, %Y at %H:%M')  %></div>
     <div class="col-md-6 text-right">
       <label >user password: </label>
       <%= form.text_field :password %>
