@@ -10,11 +10,22 @@ Rails.application.routes.draw do
   resources :super_admins
   resources :posts
   resources :sessions
+
   resources :password_resets, only: [:new, :create, :edit, :update]
 
   post 'password_resets/update', to: 'password_resets#edit'
 
-  get 'login', to: 'sessions#new', as: 'login'
+  resources :posts do
+    resources :upvotes
+  end
+  resources :posts do
+    resources :downvotes
+  end
+
+  post 'create_commentarie', to: 'posts#create_commentarie', as: 'create_commentarie'
+  put 'update_user', to: 'user_profiles#update_user', as: 'update_user'
+
+
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
   get '/users/intro', to: 'users#intro'

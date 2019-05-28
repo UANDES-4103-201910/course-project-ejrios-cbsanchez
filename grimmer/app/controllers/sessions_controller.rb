@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     puts user
     if user && user.password == session_params[:password]
       session[:user_id] = user.id
+      user.update_attribute(:last_access_at, Time.current)
       flash[:notice] = "Successful Login"
       redirect_to :home
     else

@@ -21,9 +21,27 @@ class UserProfilesController < ApplicationController
   def edit
   end
 
+  def update_user
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to home_admin_path, notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def Profile
-    @user = User.find(params[:id])
-    @post_user = Post.where("user_id =?", @user.id)
+    if params[:id] == nil
+      @user = @current_user
+      @post_user = Post.where("user_id =?", @current_user.id)
+    else
+      @user = User.find(params[:id])
+      @post_user = Post.where("user_id =?", @user.id)
+    end
+
 
   end
   def Admin_user_profile

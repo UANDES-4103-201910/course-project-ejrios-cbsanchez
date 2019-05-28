@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_26_221251) do
+
+ActiveRecord::Schema.define(version: 2019_05_27_041206) do
+
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -66,6 +68,15 @@ ActiveRecord::Schema.define(version: 2019_05_26_221251) do
     t.index ["user_id"], name: "index_commentaries_on_user_id"
   end
 
+  create_table "downvotes", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_downvotes_on_post_id"
+    t.index ["user_id"], name: "index_downvotes_on_user_id"
+  end
+
   create_table "dump_lists", force: :cascade do |t|
     t.integer "post_id"
     t.datetime "created_at", null: false
@@ -98,6 +109,15 @@ ActiveRecord::Schema.define(version: 2019_05_26_221251) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "upvotes", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_upvotes_on_post_id"
+    t.index ["user_id"], name: "index_upvotes_on_user_id"
+  end
+
   create_table "user_profiles", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
@@ -119,9 +139,9 @@ ActiveRecord::Schema.define(version: 2019_05_26_221251) do
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "reset_digest"
-    t.datetime "reset_sent_at"
-    t.string "remember_digest"
+
+    t.datetime "last_access_at"
+
   end
 
 end
