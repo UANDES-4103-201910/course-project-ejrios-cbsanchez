@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+  get 'password_resets/edit'
   resources :users
   resources :dump_lists
   resources :black_lists
@@ -8,6 +10,9 @@ Rails.application.routes.draw do
   resources :super_admins
   resources :posts
   resources :sessions
+  resources :password_resets, only: [:new, :create, :edit, :update]
+
+  post 'password_resets/update', to: 'password_resets#edit'
 
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
