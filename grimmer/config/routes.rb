@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   post 'create_commentarie', to: 'posts#create_commentarie', as: 'create_commentarie'
   put 'update_user', to: 'user_profiles#update_user', as: 'update_user'
 
+  #for google autenticathion
+  get 'auth/:provider/callback', to: 'sessions#googleAuth'
+  get 'auth/failure', to: redirect('/')
+  ## end google routes
 
   get 'logout', to: 'sessions#destroy', as: 'logout'
 

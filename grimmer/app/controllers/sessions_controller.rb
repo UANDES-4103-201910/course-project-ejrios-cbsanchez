@@ -2,6 +2,13 @@ class SessionsController < ApplicationController
   def LogIn
   end
 
+  def googleAuth
+    user = User.from_omniauth(request.env["omniauth.auth"])
+    session[:user_id] = user.id
+    user.update_attribute(:last_access_at, Time.current)
+    redirect_to home_path
+  end
+
   def create
     #complete this method
     user = User.where(email: session_params[:email]).first
