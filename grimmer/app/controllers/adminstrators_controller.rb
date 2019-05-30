@@ -38,9 +38,11 @@ class AdminstratorsController < ApplicationController
 
     respond_to do |format|
       if @adminstrator.save
-        format.html { redirect_to home_admin_path, notice: 'Adminstrator was successfully created.' }
+        flash[:success] = 'Adminstrator was successfully created.'
+        format.html { redirect_to home_admin_path }
         format.json { render :show, status: :created, location: @adminstrator }
       else
+        flash[:danger] = "You have errors, try again"
         format.html { render :new }
         format.json { render json: @adminstrator.errors, status: :unprocessable_entity }
       end
@@ -52,9 +54,11 @@ class AdminstratorsController < ApplicationController
   def update
     respond_to do |format|
       if @adminstrator.update(adminstrator_params)
-        format.html { redirect_to modify_admin_path, notice: 'Adminstrator was successfully updated.' }
+        flash[:success] = 'Adminstrator was successfully updated.'
+        format.html { redirect_to modify_admin_path }
         format.json { render :show, status: :ok, location: @adminstrator }
       else
+        flash[:danger] = "You have errors, try again"
         format.html { render :edit }
         format.json { render json: @adminstrator.errors, status: :unprocessable_entity }
       end
@@ -66,7 +70,8 @@ class AdminstratorsController < ApplicationController
   def destroy
     @adminstrator.destroy
     respond_to do |format|
-      format.html { redirect_to modify_admin_path, notice: 'Adminstrator was successfully destroyed.' }
+      flash[:success] = 'Adminstrator was successfully destroyed.'
+      format.html { redirect_to modify_admin_path}
       format.json { head :no_content }
     end
   end

@@ -31,9 +31,11 @@ class DumpListsController < ApplicationController
 
     respond_to do |format|
       if @dump_list.save
-        format.html { redirect_to @dump_list, notice: 'Dump list was successfully created.' }
+        flash[:success] = 'Dump list was successfully created.'
+        format.html { redirect_to @dump_list }
         format.json { render :show, status: :created, location: @dump_list }
       else
+        flash[:danger] = "You have errors, try again"
         format.html { render :new }
         format.json { render json: @dump_list.errors, status: :unprocessable_entity }
       end
@@ -45,9 +47,11 @@ class DumpListsController < ApplicationController
   def update
     respond_to do |format|
       if @dump_list.update(dump_list_params)
-        format.html { redirect_to @dump_list, notice: 'Dump list was successfully updated.' }
+        flash[:success] = 'Dump list was successfully updated.'
+        format.html { redirect_to @dump_list }
         format.json { render :show, status: :ok, location: @dump_list }
       else
+        flash[:danger] = "You have errors, try again"
         format.html { render :edit }
         format.json { render json: @dump_list.errors, status: :unprocessable_entity }
       end
@@ -59,7 +63,8 @@ class DumpListsController < ApplicationController
   def destroy
     @dump_list.destroy
     respond_to do |format|
-      format.html { redirect_to dump_lists_url, notice: 'Dump list was successfully destroyed.' }
+      flash[:success] = 'Dump list was successfully destroyed.'
+      format.html { redirect_to dump_lists_url }
       format.json { head :no_content }
     end
   end

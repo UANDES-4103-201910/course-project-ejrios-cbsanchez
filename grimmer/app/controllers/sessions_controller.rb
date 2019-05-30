@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     user = User.from_omniauth(request.env["omniauth.auth"])
     session[:user_id] = user.id
     user.update_attribute(:last_access_at, Time.current)
+    flash[:success] = "Successful Login"
     redirect_to home_path
   end
 
@@ -16,10 +17,10 @@ class SessionsController < ApplicationController
     if user && user.password == session_params[:password]
       session[:user_id] = user.id
       user.update_attribute(:last_access_at, Time.current)
-      flash[:notice] = "Successful Login"
+      flash[:success] = "Successful Login"
       redirect_to :home
     else
-      flash[:error] = "Invalid credentials"
+      flash[:danger] = "Invalid credentials"
       redirect_to :LogIn
     end
 

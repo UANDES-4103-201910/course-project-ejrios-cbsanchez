@@ -108,7 +108,7 @@
         <div class="media border p-3 ">
           <div class="media-body">
             <h3>Comment</h3>
-              <%= form_for Commentary.new ,  url: {action: "create_commentarie"}, html: {class: "nifty_form"} do |f| %>
+              <%= form_for Commentary.new() ,  url: {action: "create_commentarie"}, html: {class: "nifty_form"} do |f| %>
                 <div class="container text-left">
                   <div class="field">
                     <div class="row">

@@ -3,10 +3,10 @@ class UpvotesController < ApplicationController
 
   def create
     if already_downvoted?
-      flash[:notice] = "you can downvote and upvote the same post"
+      flash[:danger] = "you can downvote and upvote the same post"
     else
       if already_upvoted?
-        flash[:notice] = "you cant Upvote more tan once"
+        flash[:danger] = "you cant Upvote more tan once"
       else
         @post.upvotes.create(user_id: @current_user.id)
       end

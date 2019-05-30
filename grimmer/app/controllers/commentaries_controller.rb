@@ -31,9 +31,11 @@ class CommentariesController < ApplicationController
 
     respond_to do |format|
       if @commentary.save
-        format.html { redirect_to home_path, notice: 'Commentary was successfully created.' }
+        flash[:success] = 'Commentary was successfully created.'
+        format.html { redirect_to home_path}
         format.json { render :show, status: :created, location: @commentary }
       else
+        flash[:danger] = "You have errors, try again"
         format.html { render :new }
         format.json { render json: @commentary.errors, status: :unprocessable_entity }
       end
@@ -45,9 +47,11 @@ class CommentariesController < ApplicationController
   def update
     respond_to do |format|
       if @commentary.update(commentary_params)
-        format.html { redirect_to @commentary, notice: 'Commentary was successfully updated.' }
+        flash[:success] = 'Commentary was successfully updated.'
+        format.html { redirect_to @commentary}
         format.json { render :show, status: :ok, location: @commentary }
       else
+        flash[:danger] = "You have errors, try again"
         format.html { render :edit }
         format.json { render json: @commentary.errors, status: :unprocessable_entity }
       end
@@ -59,7 +63,8 @@ class CommentariesController < ApplicationController
   def destroy
     @commentary.destroy
     respond_to do |format|
-      format.html { redirect_to commentaries_url, notice: 'Commentary was successfully destroyed.' }
+      flash[:success] = 'Commentary was successfully destroyed.'
+      format.html { redirect_to commentaries_url }
       format.json { head :no_content }
     end
   end

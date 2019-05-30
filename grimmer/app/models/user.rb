@@ -33,6 +33,7 @@ class User < ApplicationRecord
       user.name = auth.info.name
       user.nickname = auth.info.name
       user.password = '123456789'
+      user.country = auth.info.country
       user.email = auth.info.email
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)

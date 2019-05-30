@@ -51,7 +51,8 @@ class PostsController < ApplicationController
   end
 
   def deletePost
-    @post_user = Post.where(user_id: 1)
+
+    @post_user = Post.where("user_id = ?", @current_user.id)
   end
 
 
@@ -61,9 +62,11 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @commentary.save
-        format.html { redirect_to home_path, notice: 'Commentary was successfully created.' }
+        flash[:success] = 'Commentary was successfully created.'
+        format.html { redirect_to home_path }
         format.json { render :show, status: :created, location: @commentary }
       else
+        flash[:danger] = "You have errors, try again"
         format.html { render :new }
         format.json { render json: @commentary.errors, status: :unprocessable_entity }
       end
@@ -77,9 +80,12 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to home_path, notice: 'Post was successfully created.' }
+        flash[:success] = "Post was successfully created."
+        format.html { redirect_to home_path}
         format.json { render :show, status: :created, location: @post }
+
       else
+        flash[:danger] = "You have errors, try again"
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
@@ -91,9 +97,11 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to home_path, notice: 'Post was successfully updated.' }
+        flash[:success] = 'Post was successfully updated.'
+        format.html { redirect_to home_path }
         format.json { render :show, status: :ok, location: @post }
       else
+        flash[:danger] = "You have errors, try again"
         format.html { render :edit }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
@@ -105,7 +113,8 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to deletePost_path, notice: 'Post was successfully destroyed.' }
+      flash[:success] = 'Post was successfully destroyed.'
+      format.html { redirect_to deletePost_path }
       format.json { head :no_content }
     end
   end

@@ -24,9 +24,11 @@ class UserProfilesController < ApplicationController
   def update_user
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to home_admin_path, notice: 'User was successfully updated.' }
+        flash[:success] = 'User was successfully updated.'
+        format.html { redirect_to home_admin_path }
         format.json { render :show, status: :ok, location: @user }
       else
+        flash[:danger] = "You have errors, try again"
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -57,9 +59,11 @@ class UserProfilesController < ApplicationController
 
     respond_to do |format|
       if @user_profile.save
-        format.html { redirect_to @user_profile, notice: 'User profile was successfully created.' }
+        flash[:success] = 'User profile was successfully created.'
+        format.html { redirect_to @user_profile}
         format.json { render :show, status: :created, location: @user_profile }
       else
+        flash[:danger] = "You have errors, try again"
         format.html { render :new }
         format.json { render json: @user_profile.errors, status: :unprocessable_entity }
       end

@@ -28,9 +28,11 @@ class SuperAdminsController < ApplicationController
 
     respond_to do |format|
       if @super_admin.save
-        format.html { redirect_to @super_admin, notice: 'Super admin was successfully created.' }
+        flash[:success] = 'Super admin was successfully created.'
+        format.html { redirect_to @super_admin }
         format.json { render :show, status: :created, location: @super_admin }
       else
+        flash[:danger] = "You have errors, try again"
         format.html { render :new }
         format.json { render json: @super_admin.errors, status: :unprocessable_entity }
       end
@@ -42,9 +44,11 @@ class SuperAdminsController < ApplicationController
   def update
     respond_to do |format|
       if @super_admin.update(super_admin_params)
-        format.html { redirect_to @super_admin, notice: 'Super admin was successfully updated.' }
+        flash[:success] = 'Super admin was successfully updated.'
+        format.html { redirect_to @super_admin}
         format.json { render :show, status: :ok, location: @super_admin }
       else
+        flash[:danger] = "You have errors, try again"
         format.html { render :edit }
         format.json { render json: @super_admin.errors, status: :unprocessable_entity }
       end
@@ -56,7 +60,8 @@ class SuperAdminsController < ApplicationController
   def destroy
     @super_admin.destroy
     respond_to do |format|
-      format.html { redirect_to super_admins_url, notice: 'Super admin was successfully destroyed.' }
+      flash[:success] = 'Super admin was successfully destroyed.'
+      format.html { redirect_to super_admins_url }
       format.json { head :no_content }
     end
   end
