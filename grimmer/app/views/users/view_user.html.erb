@@ -22,7 +22,7 @@
       <a class="nav-link" href="blacklist">Blacklist</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Dumplist</a>
+      <a class="nav-link" href="dumplist">Dumplist</a>
     </li>
     <!-- Dropdown -->
     <li class="nav-item dropdown">
@@ -73,7 +73,7 @@
               </div>
 
               <div class="col text-right">
-                <%= user.photo %>
+                <%= image_tag(user.photo, width:'80px') if user.photo.attached? %>
               </div>
             </div>
             <div class="container row" >

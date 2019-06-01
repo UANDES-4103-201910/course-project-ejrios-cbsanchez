@@ -14,7 +14,7 @@ class CommentariesController < ApplicationController
 
   # GET /commentaries/new
   def new
-    @commentary = Commentary.new
+    @commentary = Commentary.new(post_id: params[:post_id])
   end
 
   # GET /commentaries/1/edit
@@ -27,12 +27,11 @@ class CommentariesController < ApplicationController
   def create
     @commentary = Commentary.create(commentary_params)
     @commentary.user_id = @current_user.id
-    @commentary.post_id = @post.id
 
     respond_to do |format|
       if @commentary.save
         flash[:success] = 'Commentary was successfully created.'
-        format.html { redirect_to home_path}
+        format.html { redirect_to :controller => :posts, :action => :full_post , :id => @commentary.post_id}
         format.json { render :show, status: :created, location: @commentary }
       else
         flash[:danger] = "You have errors, try again"
@@ -48,7 +47,7 @@ class CommentariesController < ApplicationController
     respond_to do |format|
       if @commentary.update(commentary_params)
         flash[:success] = 'Commentary was successfully updated.'
-        format.html { redirect_to @commentary}
+        format.html { redirect_to :controller => :posts, :action => :full_post , :id => @commentary.post_id}
         format.json { render :show, status: :ok, location: @commentary }
       else
         flash[:danger] = "You have errors, try again"

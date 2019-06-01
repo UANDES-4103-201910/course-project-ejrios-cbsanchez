@@ -70,7 +70,7 @@
       <div class="row ">
         <div class="col-sm-8 Style2"><%= @post_full.description %></div>
         <div class="col-sm-2"></div>
-        <div class="col-sm-2"><%= @post_full.photo %></div>
+        <div class="col-sm-2"><%= image_tag(@post_full.photo, width:'80px') if @post_full.photo.attached? %></div>
       </div>
       <div class="row">
         <div class="col-sm-2"><%= @post_full.country %>, <%= @post_full.city %></div>
@@ -94,63 +94,24 @@
               <div class="media-body container">
                 <h4> <%= link_to com.user.name , :controller => :user_profiles , :action => :Profile , :id => com.user.id  %>
                   <small><i><%= com.created_at.strftime('%B %d, %Y at %H:%M') %></i></small></h4>
-                <p><%= com.texto %></div>
-              <img src="img_avatar3.png" alt="John Doe" class="ml-3 mt-3 rounded-circle" style="width:60px;">
+                <p><%= com.texto %><br>
+                <% if com.user.id == @current_user.id %>
+                    <%= link_to 'edit',  edit_commentary_path(com) %>
+                <% end%></div>
+              <%= image_tag(com.photo, width:'60px') if com.photo.attached? %>
             <br>
+
          </div>
+
         <%end %>
       </div>
 
     </div>
+    <br>
     <div class="row">
       <div class="col-xl-4"></div>
-      <div class="col-xl-8 Stylefullpost">
-        <div class="media border p-3 ">
-          <div class="media-body">
-            <h3>Comment</h3>
-              <%= form_for Commentary.new() ,  url: {action: "create_commentarie"}, html: {class: "nifty_form"} do |f| %>
-                <div class="container text-left">
-                  <div class="field">
-                    <div class="row">
-                      <div class="col-md-3">
-                        <%= f.label :texto %>
-                      </div>
-                      <div class="col-md-6">
-                        <%= f.text_area :texto , class: "form-control"%>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="field">
-                    <div class="row">
-                      <div class="col-md-3">
-                        <%= f.label :photo %>
-                      </div>
-                      <div class="col-md-6">
-                        <%= f.file_field :photo %>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="field">
-                    <div class="row">
-                      <div class="col-md-3">
-                        <%= f.label :file %>
-                      </div>
-                      <div class="col-md-6">
-                        <%= f.file_field :file %>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="actions">
-                    <%= f.submit  %>
-                  </div>
-                </div>
-
-              <% end %>
-          </div>
-        </div>
+      <div class="col-xl-8 text-right">
+        <%= link_to 'Create Commentary', new_commentary_path(post_id: @post_full.id)%>
       </div>
     </div>
 

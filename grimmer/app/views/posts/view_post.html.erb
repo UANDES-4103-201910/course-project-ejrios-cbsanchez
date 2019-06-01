@@ -111,7 +111,7 @@
         <div class="row ">
           <div class="col-sm-8 Style2"><%= form.description %></div>
           <div class="col-sm-2"></div>
-          <div class="col-sm-2"><%= form.photo %></div>
+          <div class="col-sm-2"><%= image_tag(form.photo, width:'80px') if form.photo.attached? %></div>
         </div>
         <div class="row">
           <div class="col-sm-2"><%= form.country %>, <%= form.city %></div>

@@ -74,7 +74,7 @@
             <div class="col-md-3">
             </div>
             <div class="col-md-1">
-              <%= user.user.photo %>
+              <%= image_tag(user.user.photo, width:'80px') if user.user.photo.attached? %>
             </div>
             <div class="col-md-4">
               <%= link_to 'Restore', user , method: :delete, controller: BlackList,  data: { confirm: 'Are you sure?' } %>

@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   end
 
   def home
-    @post_recent = Post.all.order(:created_at).limit(20)
+    @post_recent = Post.order(created_at: :desc ).limit(20)
     @post_all = Post.all
     @post_comment = Post.all
   end
@@ -56,22 +56,7 @@ class PostsController < ApplicationController
   end
 
 
-  def create_commentarie
-    @commentary = Commentary.create(commentary_params)
-    @commentary.user_id = @current_user.id
 
-    respond_to do |format|
-      if @commentary.save
-        flash[:success] = 'Commentary was successfully created.'
-        format.html { redirect_to home_path }
-        format.json { render :show, status: :created, location: @commentary }
-      else
-        flash[:danger] = "You have errors, try again"
-        format.html { render :new }
-        format.json { render json: @commentary.errors, status: :unprocessable_entity }
-      end
-    end
-  end
   # POST /posts
   # POST /posts.json
   def create

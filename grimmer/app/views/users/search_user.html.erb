@@ -79,7 +79,7 @@
               </div>
 
               <div class="col text-right">
-                <%= user.photo %>
+                <%= image_tag(user.photo, width:'60px') if user.photo.attached? %>
               </div>
             </div>
             <div class="container row" >
