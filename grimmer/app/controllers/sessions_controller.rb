@@ -14,9 +14,11 @@ class SessionsController < ApplicationController
     #complete this method
     user = User.where(email: session_params[:email]).first
     admin = Adminstrator.where(email: session_params[:email]).first
+    sadmin = SuperAdmin.where(email: session_params[:email]).first
     puts user
     puts admin
-    if admin.nil?
+    puts sadmin
+    if admin.nil? && sadmin.nil?
       if user && user.password == session_params[:password]
         session[:user_id] = user.id
         user.update_attribute(:last_access_at, Time.current)
@@ -26,10 +28,20 @@ class SessionsController < ApplicationController
         flash[:danger] = "Invalid credentials"
         redirect_to :LogIn
       end
-    else
+    elsif user.nil? && sadmin.nil?
       if admin && admin.password == session_params[:password]
         session[:admin_id] = admin.id
         admin.update_attribute(:last_access_at, Time.current)
+        flash[:success] = "Successful Login"
+        redirect_to :home_admin
+      else
+        flash[:danger] = "Invalid credentials"
+        redirect_to :LogIn
+      end
+    else
+      if sadmin && sadmin.password == session_params[:password]
+        session[:super_admin_id] = sadmin.id
+        sadmin.update_attribute(:last_access_at, Time.current)
         flash[:success] = "Successful Login"
         redirect_to :home_admin
       else
@@ -45,6 +57,8 @@ class SessionsController < ApplicationController
     #complete this method
     session[:user_id] = nil
     session[:admin_id] = nil
+    session[:super_admin_id] = nil
+
     redirect_to :LogIn
   end
 

@@ -16,11 +16,10 @@ class ApplicationController < ActionController::Base
   def current_user
     if session[:user_id]
       @current_user ||= User.find(session[:user_id])
-    else
-      @current_user = nil
-    end
-    if session[:admin_id]
+    elsif session[:admin_id]
       @current_user ||= Adminstrator.find(session[:admin_id])
+    elsif session[:super_admin_id]
+      @current_user ||= SuperAdmin.find(session[:super_admin_id])
     else
       @current_user = nil
     end
