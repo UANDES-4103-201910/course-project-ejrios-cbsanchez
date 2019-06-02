@@ -73,7 +73,7 @@
       </div>
       <div class="row ">
         <div class="col-sm-8 Style2"><%= @post_full.description %></div>
-        <div class="col-sm-2"></div>
+        <div class="col-sm-2"><%= image_tag(@post_full.file, width:'60px') if @post_full.file.attached? %></div>
         <div class="col-sm-2"><%= image_tag(@post_full.photo, width:'80px') if @post_full.photo.attached? %></div>
       </div>
       <div class="row">
@@ -101,8 +101,10 @@
                 <p><%= com.texto %><br>
                 <% if com.user.id == @current_user.id %>
                     <%= link_to 'edit',  edit_commentary_path(com) %>
-                <% end%></div>
+                <% end%>
+              </div>
               <%= image_tag(com.photo, width:'60px') if com.photo.attached? %>
+               <%= image_tag(com.file, width:'60px') if com.file.attached? %>
             <br>
 
          </div>

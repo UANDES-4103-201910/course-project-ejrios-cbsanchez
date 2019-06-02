@@ -109,7 +109,7 @@
         </div>
         <div class="row ">
           <div class="col-sm-8 Style2"><%= @post.description %></div>
-          <div class="col-sm-2"></div>
+          <div class="col-sm-2"><%= image_tag(@post.file, width:'60px') if @post.file.attached? %></div>
           <div class="col-sm-2"><%= image_tag(@post.photo, width:'80px') if @post.photo.attached? %></div>
         </div>
         <div class="row">
@@ -136,7 +136,8 @@
                 <h4> <%= link_to com.user.name , :controller => :user_profiles , :action => :Profile , :id => com.user.id  %>
                   <small><i><%= com.created_at.strftime('%B %d, %Y at %H:%M') %></i></small></h4>
                 <p><%= com.texto %></div>
-              <img src="img_avatar3.png" alt="John Doe" class="ml-3 mt-3 rounded-circle" style="width:60px;">
+              <%= image_tag(com.photo, width:'80px') if com.photo.attached? %>
+              <%= image_tag(com.file, width:'60px') if com.file.attached? %>
               <br>
             </div>
           <%end %>

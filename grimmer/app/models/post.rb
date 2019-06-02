@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   has_many :upvotes , dependent: :destroy
   has_many :downvotes, dependent: :destroy
   has_one_attached :photo
+  has_one_attached :file
   validates :title, presence: true
   validates :description, presence: true
   validates :type_of_post, presence: true
