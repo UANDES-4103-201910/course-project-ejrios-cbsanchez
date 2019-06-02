@@ -13,22 +13,38 @@ class SessionsController < ApplicationController
   def create
     #complete this method
     user = User.where(email: session_params[:email]).first
+    admin = Adminstrator.where(email: session_params[:email]).first
     puts user
-    if user && user.password == session_params[:password]
-      session[:user_id] = user.id
-      user.update_attribute(:last_access_at, Time.current)
-      flash[:success] = "Successful Login"
-      redirect_to :home
+    puts admin
+    if admin.nil?
+      if user && user.password == session_params[:password]
+        session[:user_id] = user.id
+        user.update_attribute(:last_access_at, Time.current)
+        flash[:success] = "Successful Login"
+        redirect_to :home
+      else
+        flash[:danger] = "Invalid credentials"
+        redirect_to :LogIn
+      end
     else
-      flash[:danger] = "Invalid credentials"
-      redirect_to :LogIn
+      if admin && admin.password == session_params[:password]
+        session[:admin_id] = admin.id
+        admin.update_attribute(:last_access_at, Time.current)
+        flash[:success] = "Successful Login"
+        redirect_to :home_admin
+      else
+        flash[:danger] = "Invalid credentials"
+        redirect_to :LogIn
+      end
     end
+
 
   end
 
   def destroy
     #complete this method
     session[:user_id] = nil
+    session[:admin_id] = nil
     redirect_to :LogIn
   end
 

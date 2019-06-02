@@ -51,7 +51,7 @@
 <br>
 
 <div class="container row">
-  <div class="col-md-5">
+  <div class="col">
     <h2>View Posts</h2>
     <p>You can search by nickname, location or email</p>
     <input class="form-control" id="myInput" type="text" placeholder="Search..">
@@ -63,7 +63,7 @@
             <div class="searchable">
               <div class="container-fluid row " id="StylePost">
                 <div class="col">
-                  <a href="#" class="text-primary description "   ><%= post.title %></a>
+                  <%= link_to post.title, :controller => :posts , :action => :view_post , :id => post.id  %>
                 </div>
 
                 <div class="col text-right">
@@ -98,25 +98,24 @@
       });
   </script>
 
-  <%= form_with(model: @post, local: true, html: {multipart: true}) do |form| %>
-  <div class="col-md-7 ">
-    <div class="container">
-      <div class="col-xl-12 Stylefullpost">
+  <% if @post.nil? %>
+  <%else %>
+  <div class="col container-fluid">
+      <div class="col-xl-12 viewPost">
         <div class="row">
-          <div class="col-sm-2 "><h3><%= form.label :name %></h3></div>
-          <div class="col-sm-2"><%= link_to @post.nickname, :controller => :posts , :action => :view_post , :id => @post.id  %></div>
-          <div class="col-sm-6"></div>
-          <div class="col-sm-2"><%= form.created_at.strftime('%B %d, %Y at %H:%M')%></div>
+          <div class="col "><h5><%= @post.title %></h5></div>
+          <div class="col"><%= @post.user.nickname %></div>
+          <div class="col text-right"><%= @post.created_at.strftime('%B %d, %Y at %H:%M')%></div>
         </div>
         <div class="row ">
-          <div class="col-sm-8 Style2"><%= form.description %></div>
+          <div class="col-sm-8 Style2"><%= @post.description %></div>
           <div class="col-sm-2"></div>
-          <div class="col-sm-2"><%= image_tag(form.photo, width:'80px') if form.photo.attached? %></div>
+          <div class="col-sm-2"><%= image_tag(@post.photo, width:'80px') if @post.photo.attached? %></div>
         </div>
         <div class="row">
-          <div class="col-sm-2"><%= form.country %>, <%= form.city %></div>
-          <div class="col-sm-2"></div>
-          <div class="col-sm-1"><%= @post.downvotes.count %></div>
+          <div class="col-sm-3"><%= @post.country %>, <%= @post.city %></div>
+          <div class="col-sm-1"></div>
+          <div class="col-sm-1"><%=@post.downvotes.count %></div>
           <div class="col-sm-1 photosmall"><%= image_tag("Emoji_u1f44e.svg.png", width:'30px')%></div>
           <div class="col-sm-1"><%= @post.upvotes.count %></div>
 
@@ -143,7 +142,6 @@
           <%end %>
         </div>
       </div>
-    </div>
   </div>
   <%end %>
 

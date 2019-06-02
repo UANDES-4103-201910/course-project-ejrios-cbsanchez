@@ -19,6 +19,11 @@ class ApplicationController < ActionController::Base
     else
       @current_user = nil
     end
+    if session[:admin_id]
+      @current_user ||= Adminstrator.find(session[:admin_id])
+    else
+      @current_user = nil
+    end
   end
 
   def is_user_logged_in?

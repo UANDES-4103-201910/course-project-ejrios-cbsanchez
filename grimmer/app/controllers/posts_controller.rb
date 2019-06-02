@@ -36,7 +36,7 @@ class PostsController < ApplicationController
   def view_post
     @post_all = Post.all
     if params[:id] == nil
-      @post = blank?
+      @post = nil
     else
       @post = Post.find(params[:id])
       @comment = Commentary.where("post_id = ?", @post.id)

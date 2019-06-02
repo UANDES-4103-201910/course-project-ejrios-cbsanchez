@@ -46,6 +46,11 @@
     <li class="nav-item">
       <a class="nav-link" href="LogIn">Log Out</a>
     </li>
+    <li class="nav-item">
+      <%= @current_user.nickname%>
+      <%= @current_user.last_access_at.strftime('%B %d, %Y at %H:%M') %>
+
+    </li>
   </ul>
 </nav>
 <br>

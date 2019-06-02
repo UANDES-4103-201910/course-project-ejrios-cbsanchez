@@ -54,6 +54,7 @@
     <li class="nav-item col-md-12 text-right">
 
       <%= @current_user.name %>
+      <%= @current_user.last_access_at.strftime('%B %d, %Y at %H:%M') %>
     </li>
   </ul>
 </nav>

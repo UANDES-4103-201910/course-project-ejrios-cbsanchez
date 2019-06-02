@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create([{name: 'catalina',nickname: 'cata',email:'cb@gmail.com',country:'chile',city:'santiago',biography:'student of engineering',password:'123456789',location:'hello'},
+User.create([{name: 'catalina',nickname: 'cata',email:'cbsanchez@gmail.com',country:'chile',city:'santiago',biography:'student of engineering',password:'123456789',location:'hello'},
              {name: 'ernesto rios',nickname: 'tito',email:'tt@gmail.com',country:'chile',city:'santiago',biography:'student of engineering',password:'autos123',location:'codegua'},
              {name: 'rosario bosch',nickname: 'ro',email:'ro@gmail.com',country:'españa',city:'madrid',biography:'student of engineering ',password:'rosario',location:'universidad de los andes'}])
 Post.create([{title:'cars',description:'in the parking area a car is parked badly',user_id: 1,type_of_post:'open',country:'chile',city:'santiago',location:'universidad de los andes'},
