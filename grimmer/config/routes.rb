@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   resources :posts do
     resources :downvotes
   end
+  resources :posts do
+    resources :inappropiates
+  end
 
   post 'create_commentarie', to: 'posts#create_commentarie', as: 'create_commentarie'
   put 'update_user', to: 'user_profiles#update_user', as: 'update_user'
