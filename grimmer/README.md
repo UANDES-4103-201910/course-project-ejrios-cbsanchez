@@ -23,25 +23,44 @@ Things you may want to cover:
 
 * ...
 
-Summary of implemented features:
-- This application is the read only version so it doesn't allow the user to be created or 
-modify things. But it have the capabilities to show how is going to be when is finished.
-- The first thing the user can see is the log in page, here he go to see the new user form, 
-enter to the normal user part of the app and finally he can go to the admin part using a link. 
-this link is only going to be available in the readonly version because in later versions of 
-the app he will have to enter his email and password and the app will now if the user is normal
-or an admin.
-- When the user enter to the normal users part he can navigate throw the different pages of 
-the application that normal user are allow to see. He can see his profile, the different posts, 
-the delete page and all the wireframes of the assignment 1.2.
-- The same thing happen when when the user click on the admin link of the log in page,
-he can see all of the wireframnes of that the admin is allow to see including the super admin views
-- A database was created to show some post and users. The objective of this is that the user 
-can have a better read only experience and analyse better what the app should do.
+In this assignment we accomplish several features:
 
-Summary of features required in the assignment but pending:
--When an user click on the title of a post he can see the full post view as described in the las 
-assignment but he can only see the first post even when he pres in another post title. So this 
-feature is pending for the next assignment but it show how the app should work.
+-The user can log in with google authetication or creating a local user with a correct email address
+with the registration form. The user can also log out from the session.
+
+-If the user doesn't have an account he can create one with his email.
+
+-When the user is logged in  he can change the password to enter the app. If he forget the password
+we manage to create a form to recover it but we couldn't manage to send the email without publish 
+our personal password in the app.
+
+-An user can modify his profile information, add a picture, change his biography, etc. He also can
+view, create, update and delete his own posts and also create and edit commentaries.
+
+-The user can see other people posts, comment them, up vote and down vote the post. Also he can see 
+the author profile. We couldn't manage to follow a post or mark it as inappropiate.
+
+-The user can search other users and other posts.
+
+-The app recognise the type of user (normal, admin or super admin ) when he is trying to log in and
+redirect him to the correct view.
+
+-The administrator can see the users in the blacklist and get them out of it. He also can search for
+a specific user in the blacklist. The same thing can be done with the post in the dumblist.
+
+-The admin can see the full post and the full user profile. He also can edit the user profile.
+
+-A new administrator can be created, updated and deleted.
+
+-The application show feedback to the user with a green tag when the operation is correct and a 
+red tag when not.
+
+
+
+
+
+ 
+
+
 
 
