@@ -47,7 +47,9 @@ class PostsController < ApplicationController
   def full_post
     @post_full = Post.find(params[:id])
     @comment = Commentary.where("post_id = ?", @post_full.id)
-
+    if @post_full.inappropiates.count >= 3
+      DumpList.create(post_id:@post_full.id)
+    end
   end
 
   def deletePost
