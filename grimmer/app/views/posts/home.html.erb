@@ -67,6 +67,7 @@
         <p id="notice"><%= notice %></p>
         <div  class="container Style2 end">
           <% @post_recent.each do |post| %>
+
             <div class="container-fluid row " id="StylePost">
               <div class="col description">
                 <%= link_to post.title , :action => :full_post , :id => post.id  %>
