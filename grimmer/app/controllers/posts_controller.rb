@@ -27,10 +27,16 @@ class PostsController < ApplicationController
     @post_recent = Post.order(created_at: :desc ).limit(20)
     @post_all = Post.all
     @post_comment = Post.all
+    if @current_user.nil?
+      redirect_to  :LogIn
+    end
   end
 
   def search_post
     @post_all_search = Post.all
+    if @current_user.nil?
+      redirect_to  :LogIn
+    end
   end
 
   def view_post
@@ -41,7 +47,9 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
       @comment = Commentary.where("post_id = ?", @post.id)
     end
-
+    if @current_user.nil?
+      redirect_to  :LogIn
+    end
   end
 
   def full_post
@@ -50,11 +58,17 @@ class PostsController < ApplicationController
     if @post_full.inappropiates.count >= 3
       DumpList.create(post_id:@post_full.id)
     end
+    if @current_user.nil?
+      redirect_to  :LogIn
+    end
   end
 
   def deletePost
 
     @post_user = Post.where("user_id = ?", @current_user.id)
+    if @current_user.nil?
+      redirect_to  :LogIn
+    end
   end
 
 

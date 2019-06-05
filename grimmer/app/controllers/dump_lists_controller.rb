@@ -3,6 +3,9 @@ class DumpListsController < ApplicationController
 
   def dumplist
     @dump_list_all = DumpList.all
+    if @current_user.nil?
+      redirect_to  :LogIn
+    end
   end
   # GET /dump_lists
   # GET /dump_lists.json

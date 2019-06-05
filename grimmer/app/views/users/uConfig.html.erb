@@ -57,7 +57,17 @@
   </ul>
 </nav>
 <br>
+<div class="container lightgrey">
+  Last Access: <%= @current_user.last_access_at.strftime('%B %d, %Y at %H:%M') if @current_user.last_access_at %>
+  <br>
+  Role: User
+</div>
 <%= render 'form', user: @current_user %>
+
+<div class="container text-right">
+  <%= link_to 'Delete', @current_user, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+
 <br>
 <br>
 </body>

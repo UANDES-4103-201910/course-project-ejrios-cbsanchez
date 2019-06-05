@@ -3,9 +3,15 @@ class UsersController < ApplicationController
 
   def search_user
     @user_all =User.all
+    if @current_user.nil?
+      redirect_to  :LogIn
+    end
   end
   def view_user
     @user_all =User.all
+    if @current_user.nil?
+      redirect_to  :LogIn
+    end
   end
   # GET /users
   # GET /users.json
@@ -25,13 +31,12 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if @current_user.nil?
+      redirect_to  :LogIn
+    end
   end
 
   def intro
-  end
-
-  def signIn
-
   end
 
   # POST /users
@@ -71,12 +76,24 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
-    respond_to do |format|
-      flash[:success] = 'User was successfully destroyed.'
-      format.html { redirect_to view_user_path}
-      format.json { head :no_content }
+    if session[:user_id] == @user.id
+      @user.destroy
+      session[:user_id] = nil
+      respond_to do |format|
+        flash[:success] = 'User was successfully destroyed.'
+        format.html { redirect_to :LogIn}
+        format.json { head :no_content }
+      end
+    else
+      @user.destroy
+      respond_to do |format|
+        flash[:success] = 'User was successfully destroyed.'
+        format.html { redirect_to view_user_path}
+        format.json { head :no_content }
+      end
     end
+
+
   end
 
   private

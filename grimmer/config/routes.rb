@@ -55,7 +55,6 @@ Rails.application.routes.draw do
   get 'blacklist', to: 'blacklist', controller: 'black_lists'
   get 'home_admin' , to: 'home_admin', controller: 'adminstrators'
   get 'dumplist', to: 'dumplist', controller: 'dump_lists'
-  get 'signIn', to: 'signIn',  controller: 'users'
   get 'usePolicy', to: 'usePolicy',  controller: 'users'
   get 'view_post', to: 'view_post', controller: 'posts'
   get 'modify_admin' , to: 'modify_admin', controller: 'adminstrators'

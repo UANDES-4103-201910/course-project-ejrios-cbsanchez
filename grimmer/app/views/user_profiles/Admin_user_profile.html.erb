@@ -68,7 +68,7 @@
   </div>
   <br>
   <div class="container-fluid row">
-    <div class="col-md-6">Last Access: <%= @user.last_access_at.strftime('%B %d, %Y at %H:%M') if @user.last_access_at%></div>
+    <div class="col-md-6">Last Access: <%= @user.last_access_at.strftime('%B %d, %Y at %H:%M') if @user.last_access_at%> <br> Role: User</div>
     <div class="col-md-6 text-right">
       <label >user password: </label>
       <%= form.text_field :password %>
@@ -136,8 +136,9 @@
       <%= form.submit %>
     </div>
   </div>
-  <%= button_to 'Delete', @user , method: :delete, controller: User,  data: { confirm: 'Are you sure?' } %>
+
 <% end %>
+ <%= button_to 'Delete', @user , method: :delete, controller: User,  data: { confirm: 'Are you sure?' } %>
 <br>
   <div class="row">
     <div class="col text-right">

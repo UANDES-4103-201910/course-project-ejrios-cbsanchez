@@ -8,6 +8,9 @@ class BlackListsController < ApplicationController
   end
  def blacklist
    @black_list1 = BlackList.all
+   if @current_user.nil?
+     redirect_to  :LogIn
+   end
  end
   # GET /black_lists/1
   # GET /black_lists/1.json

@@ -3,6 +3,9 @@
 <head>
   <title>home</title>
   <link rel="stylesheet" href="application.scss">
+  <%if @current_user.nil? %>
+    <%= redirect_to  :LogIn %>
+  <%end %>
 </head>
 <body>
 <nav class="navbar navbar-expand-sm bg-info navbar-dark">

@@ -15,10 +15,16 @@ class CommentariesController < ApplicationController
   # GET /commentaries/new
   def new
     @commentary = Commentary.new(post_id: params[:post_id])
+    if @current_user.nil?
+      redirect_to  :LogIn
+    end
   end
 
   # GET /commentaries/1/edit
   def edit
+    if @current_user.nil?
+      redirect_to  :LogIn
+    end
   end
 
 

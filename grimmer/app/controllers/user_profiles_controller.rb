@@ -21,6 +21,7 @@ class UserProfilesController < ApplicationController
   def edit
   end
 
+
   def update_user
     respond_to do |format|
       if @user.update(user_params)
@@ -44,12 +45,16 @@ class UserProfilesController < ApplicationController
       @post_user = Post.where("user_id =?", @user.id)
     end
 
-
+    if @current_user.nil?
+      redirect_to  :LogIn
+    end
   end
   def Admin_user_profile
     @user = User.find(params[:id])
     @post_user = Post.where("user_id =?", @user.id)
-
+    if @current_user.nil?
+      redirect_to  :LogIn
+    end
   end
 
   # POST /user_profiles
@@ -89,7 +94,8 @@ class UserProfilesController < ApplicationController
   def destroy
     @user_profile.destroy
     respond_to do |format|
-      format.html { redirect_to user_profiles_url, notice: 'User profile was successfully destroyed.' }
+      flash[:success] = 'User was successfully destroyed.'
+      format.html { redirect_to view_user_path}
       format.json { head :no_content }
     end
   end

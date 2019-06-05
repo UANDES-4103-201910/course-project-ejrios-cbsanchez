@@ -15,10 +15,16 @@ class AdminstratorsController < ApplicationController
   # GET /adminstrators/new
   def new
     @adminstrator = Adminstrator.new
+    if @current_user.nil?
+      redirect_to  :LogIn
+    end
   end
 
   # GET /adminstrators/1/edit
   def edit
+    if @current_user.nil?
+      redirect_to  :LogIn
+    end
   end
   
   def modify_admin
@@ -28,7 +34,9 @@ class AdminstratorsController < ApplicationController
     else
       @admin = Adminstrator.find(params[:id])
     end
-
+    if @current_user.nil?
+      redirect_to  :LogIn
+    end
   end
 
   # POST /adminstrators
