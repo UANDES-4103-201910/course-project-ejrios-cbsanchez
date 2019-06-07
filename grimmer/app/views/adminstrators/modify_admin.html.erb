@@ -132,14 +132,6 @@
           </div>
         <%end %>
         <br>
-        <label>Authorisation</label>
-        <div class="col">
-          <label for="pwda">SuperAdmin Password:</label>
-        </div>
-        <div class="col">
-          <input type="password" class="form-control" id="pwa" name="passwordAdmin">
-        </div>
-        <br>
         <div row>
           <div href="deletePost"  class="text-right" >
             <%= link_to 'Delete', @admin , method: :delete, controller: Adminstrator,  data: { confirm: 'Are you sure?' } %>

@@ -67,7 +67,7 @@ class DumpListsController < ApplicationController
     @dump_list.destroy
     respond_to do |format|
       flash[:success] = 'Dump list was successfully destroyed.'
-      format.html { redirect_to dump_lists_url }
+      format.html { redirect_to dumplist_path }
       format.json { head :no_content }
     end
   end

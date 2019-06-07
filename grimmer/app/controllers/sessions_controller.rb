@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
     puts admin
     puts sadmin
     if admin.nil? && sadmin.nil?
-      if user && user.password == session_params[:password]
+      if user && user.authenticate(session_params[:password])
         session[:user_id] = user.id
         user.update_attribute(:last_access_at, Time.current)
         flash[:success] = "Successful Login"

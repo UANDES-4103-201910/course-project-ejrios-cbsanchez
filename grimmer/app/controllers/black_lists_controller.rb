@@ -11,6 +11,7 @@ class BlackListsController < ApplicationController
    if @current_user.nil?
      redirect_to  :LogIn
    end
+
  end
   # GET /black_lists/1
   # GET /black_lists/1.json

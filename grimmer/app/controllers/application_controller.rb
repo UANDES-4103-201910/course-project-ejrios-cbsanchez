@@ -7,12 +7,30 @@ class ApplicationController < ActionController::Base
 
   end
 
-  #def current_user
-    #complete this method
-    # @_current_user ||= session[:current_user_id] &&
-    #    User.find_by(id: session[:current_user_id])
-    #@current_user ||= User.find(session[:user_id]) if session[:user_id]
-  #end
+  #to add users to black list and the post to dumpster
+  @users = User.all
+  for u in @users
+    @posts = Post.where('user_id =?', u.id)
+    cuenta = 0
+    for p in @posts
+      #if p.inappropiates.datecreate > (Time.current - 7.days)
+      if p.inappropiates.count >=3
+        cuenta += 1
+      end
+      #end
+    end
+    if cuenta >= 2
+      BlackList.create(user_id: u.id)
+      for po in @posts
+        if po.inappropiates.count >=3
+          DumpList.create(post_id: po.id)
+        end
+      end
+    end
+  end
+
+
+
   def current_user
     if session[:user_id]
       @current_user ||= User.find(session[:user_id])

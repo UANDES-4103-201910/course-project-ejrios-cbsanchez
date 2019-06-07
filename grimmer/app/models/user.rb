@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :downvotes, dependent: :destroy
   has_many :inappropiates, dependent: :destroy
   has_one_attached :photo
+  has_secure_password
   validates :name, presence: true
   validates :password, length: { in: 6..15}, presence: true
   validates :nickname, uniqueness: true, presence: true

@@ -5,7 +5,7 @@ class InappropiatesController < ApplicationController
     if already_marked?
       flash[:danger] = "you can't mark as inappropiate more tan once"
     else
-      @post.inappropiates.create(user_id: @current_user.id)
+      @post.inappropiates.create(user_id: @current_user.id, datecreate: Time.current)
     end
     redirect_to  :controller => :posts , :action => :full_post , :id => @post.id
   end

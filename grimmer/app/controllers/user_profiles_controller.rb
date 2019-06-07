@@ -19,12 +19,13 @@ class UserProfilesController < ApplicationController
 
   # GET /user_profiles/1/edit
   def edit
+
   end
 
 
   def update_user
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update(params[:id])
         flash[:success] = 'User was successfully updated.'
         format.html { redirect_to home_admin_path }
         format.json { render :show, status: :ok, location: @user }
