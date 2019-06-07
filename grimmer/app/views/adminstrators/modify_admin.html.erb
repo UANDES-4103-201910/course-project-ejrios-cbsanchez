@@ -44,7 +44,7 @@
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="LogIn">Log Out</a>
+      <a class="nav-link" href="logout">Log Out</a>
     </li>
   </ul>
 </nav>
@@ -124,9 +124,13 @@
         <div class="col">
           <%= form.text_field :city, class: "form-control"  %>
         </div>
-        <div class="col">
-          <label>Last Access:</label>
-        </div>
+        <%if @admin %>
+          <div class="col">
+            Last Access: <%= @admin.last_access_at.strftime('%B %d, %Y at %H:%M') if @admin.last_access_at %>
+            <br>
+            Role: Administrator
+          </div>
+        <%end %>
         <br>
         <label>Authorisation</label>
         <div class="col">
