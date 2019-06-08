@@ -13,10 +13,13 @@ class ApplicationController < ActionController::Base
     @posts = Post.where('user_id =?', u.id)
     cuenta = 0
     for p in @posts
-      #if p.inappropiates.datecreate > (Time.current - 7.days)
-      if p.inappropiates.count >=3
-        cuenta += 1
-      end
+      m = Inappropiate.where('post_id = ?', p.id).first()
+      #if m != nil
+       # if m.datecreate > (Time.current - 7.days)
+          if p.inappropiates.count >=3
+            cuenta += 1
+          end
+        #end
       #end
     end
     if cuenta >= 2
@@ -29,7 +32,19 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
+  #delete user and post from black list and dumplist after a week
+  @black = BlackList.all
+  for b in @black
+    if b.created_at > (Time.current - 7.days)
+      b.destroy
+    end
+  end
+  @dump = DumpList.all
+  for d in @dump
+    if d.created_at > (Time.current - 7.days)
+      d.destroy
+    end
+  end
 
   def current_user
     if session[:user_id]
