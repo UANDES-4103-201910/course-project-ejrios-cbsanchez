@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :locations
   get 'password_resets/new'
   get 'password_resets/edit'
   resources :users
@@ -10,7 +11,6 @@ Rails.application.routes.draw do
   resources :super_admins
   resources :posts
   resources :sessions
-
   resources :password_resets, only: [:new, :create, :edit, :update]
 
   post 'password_resets/update', to: 'password_resets#edit'
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   end
 
   post 'create_commentarie', to: 'posts#create_commentarie', as: 'create_commentarie'
-  put 'update_user', to: 'user_profiles#update_user', as: 'update_user'
+  patch 'update_user', to: 'user_profiles#update_user', as: 'update_user'
 
   #for google autenticathion
   get 'auth/:provider/callback', to: 'sessions#googleAuth'

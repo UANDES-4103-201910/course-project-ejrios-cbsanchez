@@ -17,10 +17,12 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    @post.locations.build
   end
 
   # GET /posts/1/edit
   def edit
+    @post.locations.build
   end
 
   def home
@@ -127,6 +129,6 @@ class PostsController < ApplicationController
   end
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :description, :user_id, :type_of_post, :country, :city, :photo, :file, :location)
+      params.require(:post).permit(:title, :description, :user_id, :type_of_post, :country, :city, :photo, :file, locations_attributes: [:id, :address])
     end
 end

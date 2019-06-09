@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many :commentaries
+  has_many :locations, dependent: :destroy
   has_many :upvotes , dependent: :destroy
   has_many :downvotes, dependent: :destroy
   has_many :inappropiates, dependent: :destroy
@@ -11,6 +12,9 @@ class Post < ApplicationRecord
   validates :type_of_post, presence: true
 
   before_validation :ensure_post_have_description
+
+  accepts_nested_attributes_for :locations,
+                                reject_if: proc{|attr| attr['address'].blank?}
 
   private
   def ensure_post_have_description

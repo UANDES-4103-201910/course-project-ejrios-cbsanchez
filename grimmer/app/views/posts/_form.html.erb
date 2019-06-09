@@ -78,8 +78,21 @@
       </div>
 
       <div class="field">
-        <%= form.label :location %>
-        <%= form.text_field :location %>
+        <%= form.fields_for :locations do |loc| %>
+        <div class=" locations_fields">
+          <div class="fields">
+            <div class="row">
+              <div class="col-md-3">
+                <%= loc.label :address %>
+              </div>
+              <div class="col-md-6">
+                <%= loc.text_field :address , class: "form-control" %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <%end %>
       </div>
 
       <div class="field">

@@ -9,7 +9,6 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :city
       t.string  :photo
       t.string :file
-      t.string :location
 
       t.timestamps
     end
