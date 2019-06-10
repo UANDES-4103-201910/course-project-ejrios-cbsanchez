@@ -1,5 +1,6 @@
 class CommentariesController < ApplicationController
   before_action :set_commentary, only: [:show, :edit, :update, :destroy]
+  before_action :current_user
 
   # GET /commentaries
   # GET /commentaries.json

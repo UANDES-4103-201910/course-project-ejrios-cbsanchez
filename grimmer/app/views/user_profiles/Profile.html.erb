@@ -105,7 +105,10 @@
               <%= post.description %>
             </div>
             <div class="container row " id="StylePost">
-               <%= link_to 'Edit', edit_post_path(post) %>
+              <% if post.user.id == @current_user.id %>
+                <%= link_to 'Edit', edit_post_path(post) %>
+              <% end%>
+
             </div>
             <br>
 

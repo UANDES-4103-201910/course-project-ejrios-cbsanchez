@@ -74,3 +74,4 @@ gem 'json', '~> 1.8.3'
 gem 'geocoder'
 
 gem 'omniauth-google-oauth2', "~> 0.2.1"
+
