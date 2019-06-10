@@ -50,7 +50,7 @@ class AdminstratorsController < ApplicationController
         format.html { redirect_to home_admin_path }
         format.json { render :show, status: :created, location: @adminstrator }
       else
-        flash[:danger] = "You have errors, try again"
+        flash[:danger] = "There are some mistakes, please try again"
         format.html { render :new }
         format.json { render json: @adminstrator.errors, status: :unprocessable_entity }
       end
@@ -66,7 +66,7 @@ class AdminstratorsController < ApplicationController
         format.html { redirect_to modify_admin_path }
         format.json { render :show, status: :ok, location: @adminstrator }
       else
-        flash[:danger] = "You have errors, try again"
+        flash[:danger] = "There are some mistakes, please try again"
         format.html { render :edit }
         format.json { render json: @adminstrator.errors, status: :unprocessable_entity }
       end

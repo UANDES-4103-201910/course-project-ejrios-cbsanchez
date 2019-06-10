@@ -24,19 +24,7 @@ class UserProfilesController < ApplicationController
   end
 
 
-  def update_user
-    respond_to do |format|
-      if @user.update(params[:id])
-        flash[:success] = 'User was successfully updated.'
-        format.html { redirect_to home_admin_path }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        flash[:danger] = "You have errors, try again"
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+
 
   def Profile
     if params[:id] == nil
@@ -58,7 +46,19 @@ class UserProfilesController < ApplicationController
       redirect_to  :LogIn
     end
   end
-
+  def update_user
+    respond_to do |format|
+      if @user.update(params[:id])
+        flash[:success] = 'User was successfully updated.'
+        format.html { redirect_to home_admin_path }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        flash[:danger] = "You have errors, try again"
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   # POST /user_profiles
   # POST /user_profiles.json
   def create
@@ -70,7 +70,7 @@ class UserProfilesController < ApplicationController
         format.html { redirect_to @user_profile}
         format.json { render :show, status: :created, location: @user_profile }
       else
-        flash[:danger] = "You have errors, try again"
+        flash[:danger] = "There are some mistakes, please try again"
         format.html { render :new }
         format.json { render json: @user_profile.errors, status: :unprocessable_entity }
       end

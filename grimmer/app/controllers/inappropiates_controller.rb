@@ -3,7 +3,7 @@ class InappropiatesController < ApplicationController
 
   def create
     if already_marked?
-      flash[:danger] = "you can't mark as inappropiate more tan once"
+      flash[:danger] = "You can't mark a post as inappropiate more than once"
     else
       @post.inappropiates.create(user_id: @current_user.id, datecreate: Time.current)
     end

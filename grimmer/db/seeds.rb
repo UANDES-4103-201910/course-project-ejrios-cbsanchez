@@ -9,10 +9,10 @@
 User.create([{name: 'catalina',nickname: 'cata',email:'cbsanchez@gmail.com',country:'chile',city:'santiago',biography:'student of engineering',password:'123456789',location:'hello'},
              {name: 'ernesto rios',nickname: 'tito',email:'tt@gmail.com',country:'chile',city:'santiago',biography:'student of engineering',password:'autos123',location:'codegua'},
              {name: 'rosario bosch',nickname: 'ro',email:'ro@gmail.com',country:'españa',city:'madrid',biography:'student of engineering ',password:'rosario',location:'universidad de los andes'}])
-Post.create([{title:'cars',description:'in the parking area a car is parked badly',user_id: 1,type_of_post:'open',country:'chile',city:'santiago',location:'universidad de los andes'},
-             {title:'tests',description:'we have to much thing to do for the university and we dont have time for other things',user_id: 1,type_of_post:'open',country:'chile',city:'santiago',location:'universidad de los andes'},
-            {title:'class',description:'today in the class the teacher take my airpods and didnt give me back so now i dont have airpods',user_id: 1,type_of_post:'open',country:'chile',city:'santiago',location:'europe'},
-             {title:'phone',description:'today in the bus some boy stole my phone  so now i dont have phone',user_id: 2,type_of_post:'open',country:'chile',city:'santiago',location:'chile'}])
+Post.create([{title:'cars',description:'in the parking area a car is parked badly',user_id: 1,type_of_post:'open',country:'chile',city:'santiago'},
+             {title:'tests',description:'we have to much thing to do for the university and we dont have time for other things',user_id: 1,type_of_post:'open',country:'chile',city:'santiago'},
+            {title:'class',description:'today in the class the teacher take my airpods and didnt give me back so now i dont have airpods',user_id: 1,type_of_post:'open',country:'chile',city:'santiago'},
+             {title:'phone',description:'today in the bus some boy stole my phone  so now i dont have phone',user_id: 2,type_of_post:'open',country:'chile',city:'santiago'}])
 Adminstrator.create([{name:'catalina sanchez', password: 'especial', nickname: 'cata2222', email:'cb@gmail.com' , country: 'chile', city:'santiago'}])
 SuperAdmin.create([{name:'claudio alvarez', password:'teacher', nickname:'clal', email:'cbalvarez@uandes.cl', e_password: 'onlyone'}])
 BlackList.create([{user_id: 3}])

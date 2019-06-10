@@ -32,7 +32,7 @@ class SuperAdminsController < ApplicationController
         format.html { redirect_to @super_admin }
         format.json { render :show, status: :created, location: @super_admin }
       else
-        flash[:danger] = "You have errors, try again"
+        flash[:danger] = "There are some mistakes, please try again"
         format.html { render :new }
         format.json { render json: @super_admin.errors, status: :unprocessable_entity }
       end
@@ -48,7 +48,7 @@ class SuperAdminsController < ApplicationController
         format.html { redirect_to @super_admin}
         format.json { render :show, status: :ok, location: @super_admin }
       else
-        flash[:danger] = "You have errors, try again"
+        flash[:danger] = "There are some mistakes, please try again"
         format.html { render :edit }
         format.json { render json: @super_admin.errors, status: :unprocessable_entity }
       end

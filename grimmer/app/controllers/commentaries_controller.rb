@@ -40,7 +40,7 @@ class CommentariesController < ApplicationController
         format.html { redirect_to :controller => :posts, :action => :full_post , :id => @commentary.post_id}
         format.json { render :show, status: :created, location: @commentary }
       else
-        flash[:danger] = "You have errors, try again"
+        flash[:danger] = "There are some mistakes, please try again"
         format.html { render :new }
         format.json { render json: @commentary.errors, status: :unprocessable_entity }
       end
@@ -56,7 +56,7 @@ class CommentariesController < ApplicationController
         format.html { redirect_to :controller => :posts, :action => :full_post , :id => @commentary.post_id}
         format.json { render :show, status: :ok, location: @commentary }
       else
-        flash[:danger] = "You have errors, try again"
+        flash[:danger] = "There are some mistakes, please try again"
         format.html { render :edit }
         format.json { render json: @commentary.errors, status: :unprocessable_entity }
       end

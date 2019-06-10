@@ -50,7 +50,7 @@ class UsersController < ApplicationController
         format.html { redirect_to :LogIn }
         format.json { render :show, status: :created, location: @user }
       else
-        flash[:danger] = "You have errors, try again"
+        flash[:danger] = "There are some mistakes, please try again"
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -66,7 +66,7 @@ class UsersController < ApplicationController
         format.html { redirect_to :controller => :users , :action => :uConfig , :id => @user.id }
         format.json { render :show, status: :ok, location: @user }
       else
-        flash[:danger] = "You have errors, try again"
+        flash[:danger] = "There are some mistakes, please try again"
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end

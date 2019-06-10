@@ -38,7 +38,7 @@ class DumpListsController < ApplicationController
         format.html { redirect_to @dump_list }
         format.json { render :show, status: :created, location: @dump_list }
       else
-        flash[:danger] = "You have errors, try again"
+        flash[:danger] = "There are some mistakes, please try again"
         format.html { render :new }
         format.json { render json: @dump_list.errors, status: :unprocessable_entity }
       end
@@ -54,7 +54,7 @@ class DumpListsController < ApplicationController
         format.html { redirect_to @dump_list }
         format.json { render :show, status: :ok, location: @dump_list }
       else
-        flash[:danger] = "You have errors, try again"
+        flash[:danger] = "There are some mistakes, please try again"
         format.html { render :edit }
         format.json { render json: @dump_list.errors, status: :unprocessable_entity }
       end

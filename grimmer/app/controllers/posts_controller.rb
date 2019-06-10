@@ -85,7 +85,7 @@ class PostsController < ApplicationController
         format.json { render :show, status: :created, location: @post }
 
       else
-        flash[:danger] = "You have errors, try again"
+        flash[:danger] = "There are some mistakes, please try again"
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
@@ -101,7 +101,7 @@ class PostsController < ApplicationController
         format.html { redirect_to home_path }
         format.json { render :show, status: :ok, location: @post }
       else
-        flash[:danger] = "You have errors, try again"
+        flash[:danger] = "There are some mistakes, please try again"
         format.html { render :edit }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end

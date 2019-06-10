@@ -38,7 +38,7 @@ class BlackListsController < ApplicationController
         format.html { redirect_to blacklist_path}
         format.json { render :show, status: :created, location: @black_list }
       else
-        flash[:danger] = "You have errors, try again"
+        flash[:danger] = "There are some mistakes, please try again"
         format.html { render :new }
         format.json { render json: @black_list.errors, status: :unprocessable_entity }
       end
@@ -54,7 +54,7 @@ class BlackListsController < ApplicationController
         format.html { redirect_to @black_list}
         format.json { render :show, status: :ok, location: @black_list }
       else
-        flash[:danger] = "You have errors, try again"
+        flash[:danger] = "There are some mistakes, please try again"
         format.html { render :edit }
         format.json { render json: @black_list.errors, status: :unprocessable_entity }
       end
