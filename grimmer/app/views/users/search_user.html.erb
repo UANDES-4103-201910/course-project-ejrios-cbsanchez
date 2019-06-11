@@ -76,24 +76,28 @@
     <tr>
       <td>
         <% @user_all.each do |user| %>
-          <div class="col searchable">
-            <div class="container-fluid row ">
-              <div class="col">
-                <%= link_to user.nickname , :controller => :user_profiles , :action => :Profile , :id => user.id  %>
-              </div>
+          <% if @black.exists?(user_id: user.id) %>
+            <% next %>
+          <% else %>
+            <div class="col searchable">
+              <div class="container-fluid row ">
+                <div class="col">
+                  <%= link_to user.nickname , :controller => :user_profiles , :action => :Profile , :id => user.id  %>
+                </div>
 
-              <div class="col text-right">
-                <%= image_tag(user.photo, width:'60px') if user.photo.attached? %>
+                <div class="col text-right">
+                  <%= image_tag(user.photo, width:'60px') if user.photo.attached? %>
+                </div>
+              </div>
+              <div class="container row" >
+                <%= user.email %>
+              </div>
+              <div class="container row" >
+                <%= user.location %>
               </div>
             </div>
-            <div class="container row" >
-              <%= user.email %>
-            </div>
-            <div class="container row" >
-              <%= user.location %>
-            </div>
-          </div>
-          <br>
+            <br>
+          <% end %>
         <% end %>
       </td>
     </tr>

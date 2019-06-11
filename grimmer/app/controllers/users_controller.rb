@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def search_user
     @user_all =User.all
+    @black = BlackList.all
     if @current_user.nil?
       redirect_to  :LogIn
     end
