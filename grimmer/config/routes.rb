@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :location_admins
   resources :locations
   get 'password_resets/new'
   get 'password_resets/edit'

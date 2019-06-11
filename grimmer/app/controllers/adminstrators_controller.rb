@@ -1,6 +1,6 @@
 class AdminstratorsController < ApplicationController
   before_action :set_adminstrator, only: [:show, :edit, :update, :destroy]
-
+  before_action :current_user
   # GET /adminstrators
   # GET /adminstrators.json
   def index
@@ -15,6 +15,7 @@ class AdminstratorsController < ApplicationController
   # GET /adminstrators/new
   def new
     @adminstrator = Adminstrator.new
+    @adminstrator.location_admins.build
     if @current_user.nil?
       redirect_to  :LogIn
     end
@@ -22,6 +23,7 @@ class AdminstratorsController < ApplicationController
 
   # GET /adminstrators/1/edit
   def edit
+    @adminstrator.location_admins.build
     if @current_user.nil?
       redirect_to  :LogIn
     end
@@ -92,6 +94,6 @@ class AdminstratorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def adminstrator_params
-      params.require(:adminstrator).permit(:name, :password, :nickname, :email, :country, :city)
+      params.require(:adminstrator).permit(:name, :password, :nickname, :email, :country, :city,location_admins_attributes: [:id, :address])
     end
 end
