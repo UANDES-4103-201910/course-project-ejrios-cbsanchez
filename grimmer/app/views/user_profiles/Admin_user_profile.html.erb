@@ -113,19 +113,19 @@
         <p id="notice"><%= notice %></p>
         <div  class="container Style2 end">
           <% @post_user.each do |post| %>
-            <div class="container-fluid row " id="StylePost">
-              <div class="col">
-                <a href="#" class="text-primary description "   ><%= post.title %></a>
-              </div>
+              <div class="container-fluid row " id="StylePost">
+                <div class="col">
+                  <a href="#" class="text-primary description "   ><%= post.title %></a>
+                </div>
 
-              <div class="col text-right">
-                <%= post.created_at.strftime('%B %d, %Y at %H:%M') %>
+                <div class="col text-right">
+                  <%= post.created_at.strftime('%B %d, %Y at %H:%M') %>
+                </div>
               </div>
-            </div>
-            <div class="container row" id="StylePost">
-              <%= post.description %>
-            </div>
-            <br>
+              <div class="container row" id="StylePost">
+                <%= post.description %>
+              </div>
+              <br>
           <% end %>
         </div>
       </div>

@@ -34,6 +34,7 @@ class UserProfilesController < ApplicationController
       @upvoted = Upvote.where("user_id =?", @current_user.id)
       @downvoted = Downvote.where("user_id =?", @current_user.id)
       @followed = Follow.where("user_id =?", @current_user.id)
+      @dump = DumpList.all
     else
       @user = User.find(params[:id])
       @post_user = Post.where("user_id =?", @user.id)
@@ -41,6 +42,7 @@ class UserProfilesController < ApplicationController
       @upvoted = Upvote.where("user_id =?", @user.id)
       @downvoted = Downvote.where("user_id =?", @user.id)
       @followed = Follow.where("user_id =?", @user.id)
+      @dump = DumpList.all
     end
 
     if @current_user.nil?

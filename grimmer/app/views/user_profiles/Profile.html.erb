@@ -92,26 +92,29 @@
         <p id="notice"><%= notice %></p>
         <div  class="container Style2 end">
           <% @post_user.each do |post| %>
-            <div class="container-fluid row " id="StylePost">
-              <div class="col">
-                <%= link_to post.title , :controller => :posts , :action => :full_post, :id => post.id  %>
+            <% if @dump.exists?(post_id: post.id) %>
+              <% next %>
+            <% else %>
+              <div class="container-fluid row " id="StylePost">
+                <div class="col">
+                  <%= link_to post.title , :controller => :posts , :action => :full_post, :id => post.id  %>
+                </div>
+
+                <div class="col text-right">
+                  <%= post.created_at.strftime('%B %d, %Y at %H:%M') %>
+                </div>
               </div>
-
-              <div class="col text-right">
-                <%= post.created_at.strftime('%B %d, %Y at %H:%M') %>
+              <div class="container row" id="StylePost">
+                <%= post.description %>
               </div>
-            </div>
-            <div class="container row" id="StylePost">
-              <%= post.description %>
-            </div>
-            <div class="container row " id="StylePost">
-              <% if post.user.id == @current_user.id %>
-                <%= link_to 'Edit', edit_post_path(post) %>
-              <% end%>
+              <div class="container row " id="StylePost">
+                <% if post.user.id == @current_user.id %>
+                  <%= link_to 'Edit', edit_post_path(post) %>
+                <% end%>
 
-            </div>
-            <br>
-
+              </div>
+              <br>
+            <%end %>
           <% end %>
         </div>
       </div>

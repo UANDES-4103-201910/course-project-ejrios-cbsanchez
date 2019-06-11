@@ -66,27 +66,30 @@
       <p id="notice"><%= notice %></p>
       <div  class="container Style2 end">
         <% @post_all_search.each do |post| %>
-          <div class="searchable">
-            <div class="container-fluid row " id="StylePost">
-              <div class="col">
-                <%= link_to post.title , :action => :full_post , :id => post.id  %>
-              </div>
+          <% if @dump.exists?(post_id: post.id) %>
+            <% next %>
+          <% else %>
+            <div class="searchable">
+              <div class="container-fluid row " id="StylePost">
+                <div class="col">
+                  <%= link_to post.title , :action => :full_post , :id => post.id  %>
+                </div>
 
-              <div class="col text-right">
-                <%= post.created_at.strftime('%B %d, %Y at %H:%M') %>
+                <div class="col text-right">
+                  <%= post.created_at.strftime('%B %d, %Y at %H:%M') %>
+                </div>
               </div>
-            </div>
-            <div class="container row" id="StylePost">
-              <%= post.description %>
-            </div>
-            <div class="container row " id="StylePost">
-              <div class="col text-right">
-                <%= post.user.nickname%>
+              <div class="container row" id="StylePost">
+                <%= post.description %>
               </div>
+              <div class="container row " id="StylePost">
+                <div class="col text-right">
+                  <%= post.user.nickname%>
+                </div>
+              </div>
+              <br>
             </div>
-            <br>
-          </div>
-
+          <% end %>
         <% end %>
       </div>
     </div>

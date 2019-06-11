@@ -27,8 +27,10 @@ class PostsController < ApplicationController
 
   def home
     @post_recent = Post.order(created_at: :desc ).limit(20)
+    @dump = DumpList.all
     @post_all = Post.all
     @post_comment = Post.all
+
     if @current_user.nil?
       redirect_to  :LogIn
     end
@@ -36,6 +38,7 @@ class PostsController < ApplicationController
 
   def search_post
     @post_all_search = Post.all
+    @dump = DumpList.all
     if @current_user.nil?
       redirect_to  :LogIn
     end

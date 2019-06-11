@@ -70,25 +70,28 @@
         <p id="notice"><%= notice %></p>
         <div  class="container Style2 end">
           <% @post_recent.each do |post| %>
+            <% if @dump.exists?(post_id: post.id) %>
+              <% next %>
+            <% else %>
+              <div class="container-fluid row " id="StylePost">
+                <div class="col description">
+                  <%= link_to post.title , :action => :full_post , :id => post.id  %>
+                </div>
 
-            <div class="container-fluid row " id="StylePost">
-              <div class="col description">
-                <%= link_to post.title , :action => :full_post , :id => post.id  %>
+                <div class="col text-right">
+                  <%= post.created_at.strftime('%B %d, %Y at %H:%M') %>
+                </div>
               </div>
-
-              <div class="col text-right">
-                <%= post.created_at.strftime('%B %d, %Y at %H:%M') %>
+              <div class="container row" id="StylePost">
+                <%= post.description %>
               </div>
-            </div>
-            <div class="container row" id="StylePost">
-              <%= post.description %>
-            </div>
-            <div class="container row " id="StylePost">
-              <div class="col text-right">
-                <%= post.user.nickname%>
+              <div class="container row " id="StylePost">
+                <div class="col text-right">
+                  <%= post.user.nickname%>
+                </div>
               </div>
-            </div>
-            <br>
+              <br>
+             <% end %>
           <% end %>
         </div>
       </div>
@@ -102,24 +105,28 @@
         <p id="notice"><%= notice %></p>
         <div  class="container Style2 end">
           <% @post_comment.each do |post| %>
-            <div class="container-fluid row " id="StylePost">
-              <div class="col">
-                <%= link_to post.title , :action => :full_post , :id => post.id %>
-              </div>
+            <% if @dump.exists?(post_id: post.id) %>
+              <% next %>
+            <% else %>
+              <div class="container-fluid row " id="StylePost">
+                <div class="col">
+                  <%= link_to post.title , :action => :full_post , :id => post.id %>
+                </div>
 
-              <div class="col text-right">
-                <%= post.created_at.strftime('%B %d, %Y at %H:%M') %>
+                <div class="col text-right">
+                  <%= post.created_at.strftime('%B %d, %Y at %H:%M') %>
+                </div>
               </div>
-            </div>
-            <div class="container row" id="StylePost">
-              <%= post.description %>
-            </div>
-            <div class="container row " id="StylePost">
-              <div class="col text-right">
-                <%= post.user.nickname%>
+              <div class="container row" id="StylePost">
+                <%= post.description %>
               </div>
-            </div>
-            <br>
+              <div class="container row " id="StylePost">
+                <div class="col text-right">
+                  <%= post.user.nickname%>
+                </div>
+              </div>
+              <br>
+            <% end %>
           <% end %>
         </div>
       </div>
