@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :upvotes , dependent: :destroy
   has_many :downvotes, dependent: :destroy
   has_many :inappropiates, dependent: :destroy
+  has_many :follows, dependent: :destroy
   has_one_attached :photo
   has_secure_password
   validates :name, presence: true

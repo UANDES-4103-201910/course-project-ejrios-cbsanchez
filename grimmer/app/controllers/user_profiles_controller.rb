@@ -30,9 +30,17 @@ class UserProfilesController < ApplicationController
     if params[:id] == nil
       @user = @current_user
       @post_user = Post.where("user_id =?", @current_user.id)
+      @post = Post.all
+      @upvoted = Upvote.where("user_id =?", @current_user.id)
+      @downvoted = Downvote.where("user_id =?", @current_user.id)
+      @followed = Follow.where("user_id =?", @current_user.id)
     else
       @user = User.find(params[:id])
       @post_user = Post.where("user_id =?", @user.id)
+      @post = Post.all
+      @upvoted = Upvote.where("user_id =?", @user.id)
+      @downvoted = Downvote.where("user_id =?", @user.id)
+      @followed = Follow.where("user_id =?", @user.id)
     end
 
     if @current_user.nil?

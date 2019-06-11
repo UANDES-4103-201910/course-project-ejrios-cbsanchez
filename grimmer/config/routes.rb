@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   resources :posts do
     resources :inappropiates
   end
+  resources :posts do
+    resources :follows
+  end
 
   post 'create_commentarie', to: 'posts#create_commentarie', as: 'create_commentarie'
   patch 'update_user', to: 'user_profiles#update_user', as: 'update_user'

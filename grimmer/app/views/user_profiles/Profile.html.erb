@@ -117,23 +117,65 @@
       </div>
     </div>
     <div class="col-sm-6 ">
-      <h5>User Shared</h5>
+      <h5>Upvoted, Downvoted and Followed</h5>
       <div  class="container Style2 end">
         <p id="notice"><%= notice %></p>
         <div  class="container Style2 end">
-          <% @post_user.each do |post| %>
+          <label> Upvoted:</label>
+          <% @upvoted.each do |post| %>
+              <div class="container-fluid row " id="StylePost">
+
+
+                <div class="col">
+                  <%= link_to post.post.title , :controller => :posts , :action => :full_post , :id => post.post.id  %>
+                </div>
+
+                <div class="col text-right">
+                  <%= post.post.created_at.strftime('%B %d, %Y at %H:%M') %>
+                </div>
+              </div>
+              <div class="container row" id="StylePost">
+                <%= post.post.description %>
+              </div>
+
+            <br>
+          <% end %>
+          <label> Downvoted:</label>
+          <% @downvoted.each do |post| %>
             <div class="container-fluid row " id="StylePost">
+
+
               <div class="col">
-                <%= link_to post.title , :controller => :posts , :action => :full_post , :id => post.id  %>
+                <%= link_to post.post.title , :controller => :posts , :action => :full_post , :id => post.post.id  %>
               </div>
 
               <div class="col text-right">
-                <%= post.created_at.strftime('%B %d, %Y at %H:%M') %>
+                <%= post.post.created_at.strftime('%B %d, %Y at %H:%M') %>
               </div>
             </div>
             <div class="container row" id="StylePost">
-              <%= post.description %>
+              <%= post.post.description %>
             </div>
+
+            <br>
+          <% end %>
+          <label> Followed:</label>
+          <% @followed.each do |post| %>
+            <div class="container-fluid row " id="StylePost">
+
+
+              <div class="col">
+                <%= link_to post.post.title , :controller => :posts , :action => :full_post , :id => post.post.id  %>
+              </div>
+
+              <div class="col text-right">
+                <%= post.post.created_at.strftime('%B %d, %Y at %H:%M') %>
+              </div>
+            </div>
+            <div class="container row" id="StylePost">
+              <%= post.post.description %>
+            </div>
+
             <br>
           <% end %>
         </div>

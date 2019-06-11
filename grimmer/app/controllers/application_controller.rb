@@ -8,40 +8,55 @@ class ApplicationController < ActionController::Base
 
   #to add users to black list and the post to dumpster
   @users = User.all
+  @black = BlackList.all
+  @dump = DumpList.all
   for u in @users
     @posts = Post.where('user_id =?', u.id)
     cuenta = 0
     for p in @posts
       m = Inappropiate.where('post_id = ?', p.id).first()
-      #if m != nil
-       # if m.datecreate > (Time.current - 7.days)
+      if m != nil
+        if m.created_at.hour > (Time.current.hour - 604800)
           if p.inappropiates.count >=3
             cuenta += 1
           end
-        #end
-      #end
-    end
-    if cuenta >= 2
-      BlackList.create(user_id: u.id)
-      for po in @posts
-        if po.inappropiates.count >=3
-          DumpList.create(post_id: po.id)
         end
       end
+    end
+    @blackuser = BlackList.where('user_id=?', u.id)
+    if cuenta >= 2
+      if @blackuser.count >= 1
+      else
+        BlackList.create(user_id: u.id)
+        for po in @posts
+          if po.inappropiates.count >=3
+            DumpList.create(post_id: po.id)
+          end
+
+        end
+      end
+
     end
   end
 
   #delete user and post from black list and dumplist after a week
-  @black = BlackList.all
-  for b in @black
-    if b.created_at > (Time.current - 7.days)
-      b.destroy
+  @blackDelete = BlackList.all
+  if @blackDelete.nil?
+  else
+    for b in @blackDelete
+      if b.created_at.hour < (Time.current.hour - 604800)
+        b.destroy
+      end
     end
   end
-  @dump = DumpList.all
-  for d in @dump
-    if d.created_at > (Time.current - 7.days)
-      d.destroy
+
+  @dumpDelete = DumpList.all
+  if @dumpDelete.nil?
+  else
+    for d in @dumpDelete
+      if d.created_at.hour < (Time.current.hour - 604800)
+        d.destroy
+      end
     end
   end
 

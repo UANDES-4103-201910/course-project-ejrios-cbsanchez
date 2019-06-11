@@ -84,7 +84,7 @@
         <div class="col-sm-1 text-right"><p><%= @post_full.upvotes.count %></p></div>
         <div class="col-sm-1 photo"><%= link_to image_tag("1f44d.png", width:'30px'), post_upvotes_path(@post_full), method: :post %></div>
 
-        <div class="col-sm-1"> <a href="#" rol="button" class="btn btn-dark" >Follow</a></div>
+        <div class="col-sm-1"> <%= button_to "Follow",post_follows_path(@post_full), method: :post, class:"btn btn-dark" %></div>
         <div class="col-sm-1"> <%= button_to "Report",post_inappropiates_path(@post_full), method: :post, class:"btn btn-dark" %></div>
       </div>
     </div>
