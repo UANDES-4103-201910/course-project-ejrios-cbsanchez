@@ -21,10 +21,17 @@ class SessionsController < ApplicationController
     puts sadmin
     if admin.nil? && sadmin.nil?
       if user && user.authenticate(session_params[:password])
-        session[:user_id] = user.id
-        user.update_attribute(:last_access_at, Time.current)
-        flash[:success] = "Successful Login"
-        redirect_to :home
+        @black = BlackList.all
+        if @black.exists?(user_id: user.id)
+          flash[:danger] = "User account is suspended"
+          redirect_to :LogIn
+        else
+          session[:user_id] = user.id
+          user.update_attribute(:last_access_at, Time.current)
+          flash[:success] = "Successful Login"
+          redirect_to :home
+        end
+
       else
         flash[:danger] = "Invalid credentials"
         redirect_to :LogIn
