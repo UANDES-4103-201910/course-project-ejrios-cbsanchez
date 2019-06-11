@@ -23,36 +23,45 @@ Things you may want to cover:
 
 * ...
 
-In this assignment we accomplish several features:
+Summary of Implemented Features
 
--The user can log in with google authetication or creating a local user with a correct email address
+* The user can log in with google authetication or creating a local user with a correct email address
 with the registration form. The user can also log out from the session.
 
--If the user doesn't have an account he can create one with his email.
+* If the user doesn't have an account he can create one with his email.
 
--When the user is logged in  he can change the password to enter the app. If he forget the password
+* When the user is logged in  he can change the password to enter the app. If he forget the password
 we manage to create a form to recover it but we couldn't manage to send the email without publish 
 our personal password in the app.
 
--An user can modify his profile information, add a picture, change his biography, etc. He also can
+* An user can modify his profile information, add a picture, change his biography, etc. He also can
 view, create, update and delete his own posts and also create and edit commentaries.
 
--The user can see other people posts, comment them, up vote and down vote the post. Also he can see 
-the author profile. We couldn't manage to follow a post or mark it as inappropiate.
+* The user can see other people posts, comment them, up vote and down vote the post. Also he can see 
+the author profile. 
 
--The user can search other users and other posts.
+* The user also can follow or report (mark as innapropiate) a post.
 
--The app recognise the type of user (normal, admin or super admin ) when he is trying to log in and
+* The user can see the post that have bee created by him and also he can see the post that he 
+upvoted, downvoted and followed. All of this in the Profile.
+
+* The user can search other users and other posts.
+
+* The app recognise the type of user (normal, admin or super admin ) when he is trying to log in and
 redirect him to the correct view.
 
--The administrator can see the users in the blacklist and get them out of it. He also can search for
+* The administrator can see the users in the blacklist and get them out of it. He also can search for
 a specific user in the blacklist. The same thing can be done with the post in the dumblist.
 
--The admin can see the full post and the full user profile. He also can edit the user profile.
+* When when 3 different posts of a user are marked as innapropiate the user and the posts are put 
+automatically in the blacklist and dumplist. Also the user is suspended for a week and all of his 
+post are hidden.
 
--A new administrator can be created, updated and deleted.
+* The admin can see the full post and the full user profile. He also can edit the user profile.
 
--The application show feedback to the user with a green tag when the operation is correct and a 
+* A new administrator can be created, updated and deleted.
+
+* The application show feedback to the user with a green tag when the operation is correct and a 
 red tag when not.
 
 
