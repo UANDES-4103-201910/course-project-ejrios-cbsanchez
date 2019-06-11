@@ -37,6 +37,9 @@ our personal password in the app.
 * An user can modify his profile information, add a picture, change his biography, etc. He also can
 view, create, update and delete his own posts and also create and edit commentaries.
 
+* The user can add a map location to the post with a real address and then see the map on the 
+full post view.
+
 * The user can see other people posts, comment them, up vote and down vote the post. Also he can see 
 the author profile. 
 
@@ -57,12 +60,18 @@ a specific user in the blacklist. The same thing can be done with the post in th
 automatically in the blacklist and dumplist. Also the user is suspended for a week and all of his 
 post are hidden.
 
-* The admin can see the full post and the full user profile. He also can edit the user profile.
+* The admin can see the full post and the full user profile.
 
 * A new administrator can be created, updated and deleted.
 
 * The application show feedback to the user with a green tag when the operation is correct and a 
 red tag when not.
+
+Summary of features required for the assignment but pending
+
+* We couldn't manage to make the administrator to modify the user information without crash.
+
+* We didn't have time to make the geofence work.
 
 
 
