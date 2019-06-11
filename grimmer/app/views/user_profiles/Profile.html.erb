@@ -121,7 +121,9 @@
       <div  class="container Style2 end">
         <p id="notice"><%= notice %></p>
         <div  class="container Style2 end">
-          <label> Upvoted:</label>
+          <% if @upvoted.exists? %>
+            <label> Upvoted:</label>
+          <% end %>
           <% @upvoted.each do |post| %>
               <div class="container-fluid row " id="StylePost">
 
@@ -140,7 +142,9 @@
 
             <br>
           <% end %>
-          <label> Downvoted:</label>
+          <% if @downvoted.exists?%>
+            <label> Downvoted:</label>
+          <% end %>
           <% @downvoted.each do |post| %>
             <div class="container-fluid row " id="StylePost">
 
@@ -159,7 +163,9 @@
 
             <br>
           <% end %>
-          <label> Followed:</label>
+          <% if @followed.exists? %>
+            <label> Followed:</label>
+          <% end %>
           <% @followed.each do |post| %>
             <div class="container-fluid row " id="StylePost">
 
