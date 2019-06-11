@@ -1,27 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
 Summary of Implemented Features
 
@@ -72,6 +50,8 @@ Summary of features required for the assignment but pending
 * We couldn't manage to make the administrator to modify the user information without crash.
 
 * We didn't have time to make the geofence work.
+
+
 
 
 
