@@ -57,10 +57,14 @@ class PostsController < ApplicationController
     end
   end
 
+
+
+
+
   def full_post
     @post_full = Post.find(params[:id])
     @comment = Commentary.where("post_id = ?", @post_full.id)
-   # @location = Location.find(params[:id])
+    @location = Location.where("post_id=?", @post_full.id).first()
     if @current_user.nil?
       redirect_to  :LogIn
     end
