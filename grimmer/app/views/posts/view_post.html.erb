@@ -135,8 +135,8 @@
           <% @comment.each do |com| %>
             <div class="media border p-3 ">
               <div class="media-body container">
-                <h4> <%= link_to com.user.name , :controller => :user_profiles , :action => :Profile , :id => com.user.id  %>
-                  <small><i><%= com.created_at.strftime('%B %d, %Y at %H:%M') %></i></small></h4>
+                <h7> <%= link_to com.user.name , :controller => :user_profiles , :action => :Admin_user_profile , :id => com.user.id  %>
+                  <small><i><%= com.created_at.strftime('%B %d, %Y at %H:%M') %></i></small></h7>
                 <p><%= com.texto %></div>
               <%= image_tag(com.photo, width:'80px') if com.photo.attached? %>
               <%= image_tag(com.file, width:'60px') if com.file.attached? %>
