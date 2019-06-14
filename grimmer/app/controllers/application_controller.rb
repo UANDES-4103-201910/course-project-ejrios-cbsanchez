@@ -14,14 +14,14 @@ class ApplicationController < ActionController::Base
     @posts = Post.where('user_id =?', u.id)
     cuenta = 0
     for p in @posts
-      m = Inappropiate.where('post_id = ?', p.id).first()
-      if m != nil
-        #if m.datecreate.hour > (Time.current.hour - 604800)
+      #m = Inappropiate.where('post_id = ?', p.id).first()
+      #if m != nil
+      #  if m.datecreate.hour > (Time.current.hour - 604800)
           if p.inappropiates.count >=3
             cuenta += 1
           end
-        #end
-      end
+       # end
+      #end
     end
     @blackuser = BlackList.where('user_id=?', u.id)
     if cuenta >= 2

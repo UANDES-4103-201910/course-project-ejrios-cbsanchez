@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
 
   def create
     #complete this method
+
     user = User.where(email: session_params[:email]).first
     admin = Adminstrator.where(email: session_params[:email]).first
     sadmin = SuperAdmin.where(email: session_params[:email]).first
